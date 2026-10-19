@@ -1,0 +1,19 @@
+Rendi accessibile l'intero [App_starter_pack](../Starter_pack/App_starter_pack/README.md), compresi pack.json, agenti, skills, generatore e risorse. Prima del task applica la sequenza di [PROMPTME.md](../Starter_pack/App_starter_pack/PROMPTME.md): preflight, anteprima, --apply, --check e riconoscimento nel programma disponibile. Prepara sempre Codex, Claude Code e Cursor nei percorsi documentati, preservando personalizzazioni. Se Python 3.11+ manca, dichiara il prerequisito senza installarlo. Il laboratorio locale non è la destinazione dei prodotti.
+
+La presenza dei file non prova la disponibilità del ruolo. Usa nomi registrati e tool reali; mantieni distinti delega, invocazione di skill e lettura di risorse. In caso di errore diagnostica nome, formato, percorso, permessi, versione e caricamento prima del lavoro dipendente. Mantieni l'attivazione manuale di handoff e retro. Questa richiesta include i controlli statici dell'installazione.
+
+Voglio creare un nuovo progetto software dall'idea che ti fornisco e configurare gli agenti per svilupparlo. Usa il README per la collaborazione, i file degli agenti per responsabilità e limiti, le skills per le procedure condivise. Applica le skills nelle fasi previste dal ruolo, conservando schema e provenienza dei dati creati o trasformati.
+
+Leggi prima il contesto e le istruzioni disponibili. Identifica obiettivo, utenti, comportamenti essenziali, tipo di software, linguaggi e vincoli. Può essere qualsiasi codice: scegli gli strumenti in base al problema e alle mie preferenze. Chiedi soltanto le informazioni indispensabili mancanti; dichiara le assunzioni semplici e reversibili. Per versioni e compatibilità che richiedono conferma, consulta la documentazione ufficiale pertinente.
+
+Usa i sette ruoli registrati dal pack, incluso PromptAgent quando richiesto. Cerca agenti equivalenti per responsabilità e conserva le personalizzazioni valide; mantieni una fonte canonica per ciascun agente e skill. Coinvolgi soltanto i ruoli pertinenti al lavoro.
+
+AppStarter opera in modalità NEW: propone una struttura proporzionata, prepara i punti di ingresso, configurazioni, avvio, controlli, documentazione e scaffold necessari. Architect definisce in sola lettura le decisioni trasversali e i contratti prima dell'implementazione. Backend realizza le parti server e dati, Frontend le interfacce, AIEngineer le funzionalità AI, quando presenti. Per aree diverse la chat principale mantiene la responsabilità senza inventare altri ruoli. Implementa le funzionalità iniziali che ho richiesto.
+
+La chat principale coordina un TaskState compatto: requisiti R1, R2…, criteri verificabili, responsabili, dipendenze, decisioni, stato ed evidenze. Ogni file condiviso ha un solo owner; il lavoro parallelo richiede interfacce e confini concordati. Ogni passaggio consegna requisiti coperti e aperti, contratti, modifiche, verifiche e blocchi. Reviewer controlla in sola lettura le modifiche e restituisce i problemi al responsabile.
+
+Salva i materiali nella struttura scelta per il progetto, senza duplicare procedure comuni. Se un agente o una skill necessari non sono disponibili, diagnostica prima il problema e consegna il blocco con i passaggi necessari; non proseguire sul lavoro dipendente simulando la delega. Distingui istruzioni scritte da configurazioni effettivamente operative.
+
+Consegna struttura, agenti creati o aggiornati, modalità di avvio, funzionalità realizzate, controlli eseguiti e limiti ancora aperti. Non dichiarare funzionante ciò che non hai verificato.
+
+Se desidero prima creare o migliorare il prompt della richiesta, rendi disponibile anche PromptAgent_General.md e coinvolgilo con writing-for-agents e grilling per le decisioni aperte. Restituisce il prompt senza implementarlo; passa allo sviluppo solo quando richiesto. Per richieste già definite questo passaggio non è obbligatorio.

@@ -1,0 +1,5 @@
+# Configurazione del laboratorio di questo progetto.
+# Ruoli standalone in .codex/agents/. Modello e ragionamento ereditano la sessione.
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3

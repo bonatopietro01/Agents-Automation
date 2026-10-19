@@ -1,0 +1,200 @@
+{
+  "main": {
+    "id": "478c84f7e3a34518",
+    "type": "split",
+    "children": [
+      {
+        "id": "0e21df1518f999df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ecd65ac34a89d903",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Vista grafo"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "920fc8d8f17421b2",
+    "type": "split",
+    "children": [
+      {
+        "id": "e170dc53ec60c207",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4dad5df0b5c41391",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Esplora file"
+            }
+          },
+          {
+            "id": "eab5cced2e0a8d6b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Ricerca"
+            }
+          },
+          {
+            "id": "06699e8c0299916e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Segnalibri"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "df939dc7f150c874",
+    "type": "split",
+    "children": [
+      {
+        "id": "4156d9c53386ed1d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "96e0e11fb57bc868",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Riferimenti"
+            }
+          },
+          {
+            "id": "1944c3bf76eb937b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Collegamenti in uscita"
+            }
+          },
+          {
+            "id": "1f5de8f13cfcc486",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etichette"
+            }
+          },
+          {
+            "id": "e93cc428cd98b3d4",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Tutte le proprietà"
+            }
+          },
+          {
+            "id": "c562cdc5e6d1fdfe",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Struttura"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Apri selettore rapido": false,
+      "graph:Apri vista grafo": false,
+      "canvas:Crea nuova lavagna": false,
+      "daily-notes:Apri nota giornaliera": false,
+      "templates:Inserisci modello": false,
+      "command-palette:Apri riquadro comandi": false,
+      "bases:Crea nuova Base": false
+    }
+  },
+  "active": "ecd65ac34a89d903",
+  "lastOpenFiles": [
+    "Agents/BenchmarkReport.md",
+    "Prompts/ManutieniQuestoRepository.md",
+    "Skills/prompt-repository-maintenance/SKILL.md",
+    "Skills/prompt-repository-maintenance",
+    "Agents/RepositoryMaintainerAgent.md",
+    "Starter_pack/Full_stack_pack/Skills/project-graph-context/references/obsidian-workflow.md",
+    "Starter_pack/Full_stack_pack/Skills/project-graph-context/references",
+    "Starter_pack/Evaluation_pack/Skills/project-graph-context/references/obsidian-workflow.md",
+    "Starter_pack/Evaluation_pack/Skills/project-graph-context/references",
+    "Starter_pack/App_starter_pack/Skills/project-graph-context/references/obsidian-workflow.md",
+    "Starter_pack/App_starter_pack/Skills/project-graph-context/references",
+    "Skills/project-graph-context/references/obsidian-workflow.md",
+    "Skills/project-graph-context/references"
+  ]
+}

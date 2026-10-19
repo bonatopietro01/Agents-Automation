@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "id": "evaluation-pack",
+  "phases": {"project": ["evaluation"], "optimizer": ["agent-optimizer"]},
+  "skills": ["agent-configuration", "requirement-traceability", "project-graph-context", "pipeline-benchmark", "grilling", "handoff", "writing-for-agents", "codebase-design", "diagnosing-bugs", "retro", "investigate-first", "surgical-patch", "safe-refactor", "verify-and-stop"]
+}
