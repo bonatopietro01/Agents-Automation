@@ -1,6 +1,6 @@
 # Skills
 
-Raccolta canonica di **14 skills portabili**: quattro procedure originali, sei scaricate da Matt Pocock e quattro da Caveman. Le sette skills del laboratorio locale sono separate dalla raccolta portabile e non vengono esportate nei pack.
+Raccolta canonica di **11 skills portabili**: quattro procedure originali, cinque scaricate da Matt Pocock e due da Caveman. Le sette skills del laboratorio locale sono separate dalla raccolta portabile e non vengono esportate nei pack.
 
 ## Struttura comune
 
@@ -21,19 +21,16 @@ Skills/
 ├── handoff/
 ├── writing-for-agents/
 ├── codebase-design/
-├── diagnosing-bugs/
 ├── retro/
 ├── investigate-first/
-├── surgical-patch/
 ├── safe-refactor/
-└── verify-and-stop/
 ```
 
 Ogni cartella contiene il proprio `SKILL.md`. Il campo `name` del frontmatter coincide con il nome della cartella; `description` spiega la capacità e quando applicarla. Eventuali riferimenti, script e metadati rimangono nella cartella della skill.
 
 ## Skills del progetto
 
-Le quattro skills condivise sono elencate qui; le dieci procedure importate sono descritte più avanti.
+Le quattro skills condivise sono elencate qui; le sette procedure importate sono descritte più avanti.
 
 | Skill | Quando usarla | Utilizzatori |
 |---|---|---|
@@ -61,27 +58,23 @@ Le istruzioni originali sono state conservate; i riferimenti relativi sono stati
 | [handoff](handoff/SKILL.md) | Preparare il contesto per una nuova chat o un altro agente. | Chi consegna il lavoro. | Matt Pocock |
 | [writing-for-agents](writing-for-agents/SKILL.md) | Scrivere istruzioni, skills e documentazione leggibile dagli agenti. | PromptAgent, AgentOptimizer, AIEngineer. | Matt Pocock |
 | [codebase-design](codebase-design/SKILL.md) | Progettare confini dei moduli, interfacce e testabilità. | Architect, AppStarter e specialisti. | Matt Pocock |
-| [diagnosing-bugs](diagnosing-bugs/SKILL.md) | Riprodurre, diagnosticare e correggere bug difficili o regressioni. | Il responsabile dell'area coinvolta. | Matt Pocock |
 | [retro](retro/SKILL.md) | Analizzare una sessione conclusa e proporre miglioramenti dell'ambiente. | AgentOptimizer e coordinatore, su richiesta. | Matt Pocock |
 | [investigate-first](investigate-first/SKILL.md) | Raccogliere prove e individuare una causa prima delle modifiche. | Il responsabile dell'analisi o dell'area. | Caveman |
-| [surgical-patch](surgical-patch/SKILL.md) | Correggere un problema nel punto responsabile senza interventi estranei. | Backend, Frontend, AIEngineer secondo ownership. | Caveman |
 | [safe-refactor](safe-refactor/SKILL.md) | Riorganizzare codice preservando comportamento e compatibilità. | AppStarter e responsabili delle aree coinvolte. | Caveman |
-| [verify-and-stop](verify-and-stop/SKILL.md) | Verificare criteri di accettazione e riportare esiti senza ampliare il task. | Reviewer e responsabile della verifica. | Caveman |
 
-Fonti: [mattpocock/skills](https://github.com/mattpocock/skills) e [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman). È una selezione locale: le altre skills e gli installer descritti nei repository originali non fanno parte di questo pacchetto. Le procedure e le attribuzioni importate sono preservate; i richiami specifici del runtime sono adattati per Codex, Claude Code e Cursor; `surgical-patch` è stata spostata fuori da `investigate-first` perché è una skill autonoma.
+Fonti: [mattpocock/skills](https://github.com/mattpocock/skills) e [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman). È una selezione locale: le altre skills e gli installer descritti nei repository originali non fanno parte di questo pacchetto. Le procedure mantenute conservano attribuzioni e scopi; i richiami specifici del runtime sono adattati per Codex, Claude Code e Cursor. `diagnosing-bugs`, `surgical-patch` e `verify-and-stop` sono state rimosse perché duplicavano diagnosi, modifica circoscritta e controlli già coperti dalle procedure comuni; i riferimenti attivi sono stati aggiornati.
 
 ## Dipendenze e risorse presenti
 
 - **agent-configuration:** include il generatore Python 3.11+ senza dipendenze esterne e riferimenti per [installazione](agent-configuration/references/installation.md), [Codex](agent-configuration/references/codex.md), [Claude Code](agent-configuration/references/claude-code.md), [Cursor](agent-configuration/references/cursor.md) e [diagnosi delle chiamate](agent-configuration/references/runtime-check.md).
 - **writing-for-agents:** include `SKILL-MECHANICS.md`, richiamato quando si scrive una skill.
 - **codebase-design:** include `DEEPENING.md` e `DESIGN-IT-TWICE.md`, da leggere per i rispettivi casi.
-- **diagnosing-bugs:** include `scripts/hitl-loop.template.sh`, un modello per una riproduzione guidata con Bash; va adattato al caso prima dell'uso.
 - **retro:** richiama `writing-for-agents`; esporta entrambe.
 - **requirement-traceability:** richiama `project-graph-context` quando un grafo è utile.
 - **requirement-traceability:** contiene anche le regole comuni di attivazione delle skills e provenienza dei dati; richiama `grilling` per decisioni aperte, `handoff` per consegna a una nuova sessione richiesta e `retro` per una retrospettiva richiesta. Queste dipendenze si applicano nei rispettivi casi.
 - **pipeline-benchmark:** richiama `requirement-traceability` e `project-graph-context`.
 - **project-graph-context:** include [references/obsidian-workflow.md](project-graph-context/references/obsidian-workflow.md), da leggere per analizzare collaborazione e dipendenze degli agenti nel grafo dei Markdown. Distingue link, contratti e passaggi osservati.
-- Le dieci skills scaricate includono `agents/openai.yaml`: sono metadati opzionali per l'ambiente compatibile. Le quattro skills condivise non richiedono quel metadato; conservano SKILL.md e le proprie risorse.
+- Le sette skills scaricate includono `agents/openai.yaml`: sono metadati opzionali per l'ambiente compatibile. Le quattro skills condivise non richiedono quel metadato; conservano SKILL.md e le proprie risorse.
 
 `handoff` e `retro` conservano l'attivazione esplicita prevista dai file scaricati. Disponibilità di tool, subagenti, script e verifiche dipende dall'ambiente di destinazione e dalle autorizzazioni del task.
 
@@ -90,8 +83,8 @@ Fonti: [mattpocock/skills](https://github.com/mattpocock/skills) e [JuliusBrusse
 1. Leggi nome e descrizione e scegli solo le skills pertinenti. La disponibilità nel catalogo non rende obbligatorio caricarle tutte.
 2. Per domande aperte usa `grilling`. Per requisiti già definiti conserva il registro di `requirement-traceability`.
 3. Per una consegna fra ruoli mantieni requisiti e stati con `requirement-traceability`; `handoff` può produrre il documento per una nuova sessione senza ricopiare gli artefatti.
-4. Per diagnosi semplici usa `investigate-first`; per bug difficili valuta `diagnosing-bugs`. Scegli la procedura adatta, evitando due analisi equivalenti dello stesso problema.
-5. Per una correzione usa `surgical-patch`; per un riordino usa `safe-refactor`; per una verifica richiesta usa `verify-and-stop`.
+4. Per cause incerte usa `investigate-first`; quando la causa è chiara applica direttamente la modifica minima. Non duplicare una diagnosi già valida.
+5. Per un riordino strutturale usa `safe-refactor`. Per prove e limiti applica il contratto comune in `requirement-traceability`; una generica richiesta di verifica non autorizza test, build, typecheck, lint, benchmark o runtime.
 6. Per migliorare i prompt usa `writing-for-agents` e le evidenze del benchmark. `retro` raccoglie proposte dalla sessione; i benefici si verificano con `pipeline-benchmark`.
 
 Le skills operano entro responsabilità e permessi del ruolo configurato. Architect, Reviewer e PromptAgent mantengono i loro limiti di sola lettura. Requisiti, ownership e criteri hanno una sola fonte nel TaskState; le skills aggiuntive applicano il metodo senza creare registri paralleli.
@@ -101,7 +94,7 @@ I nove agenti portabili includono una sezione **Skills per il task**; la [mappa 
 ## Esportare o usare in chat
 
 - Copia **la cartella completa della skill**, incluse risorse e dipendenze pertinenti; conserva attribuzioni e condizioni di licenza della fonte.
-- Per gli starter pack copia solo le quattordici skills portabili dichiarate, senza file di configurazione specifici del repository sorgente.
+- Per gli starter pack copia solo le undici skills portabili dichiarate, senza file di configurazione specifici del repository sorgente.
 - Per gli agenti di questo repository mantieni `Agents/` e `Skills/` affiancate oppure aggiorna i riferimenti nel pacchetto derivato.
 - In una chat senza accesso ai file allega o incolla i testi necessari con il nome della skill come etichetta: diversi file chiamati `SKILL.md` devono restare riconoscibili.
 - Esempio di richiesta: «Usa la skill `safe-refactor` in `Skills/safe-refactor/SKILL.md` per il riordino richiesto, mantenendo limiti e ownership degli agenti».
@@ -111,7 +104,7 @@ Se una skill o un subagente necessari non sono disponibili, applica la diagnosi 
 
 ## Installazione e attivazione nei tre programmi
 
-Nei pack software il generatore di agent-configuration prepara tutte le 14 skills, risorse, dipendenze e metadati in `.agents/skills/` (Codex e Cursor) e `.claude/skills/` (Claude Code). Mantieni equivalenti le copie dello stesso nome; il manifest e --check permettono di controllarne la coerenza. Non modificare a mano una sola copia: l'aggiornamento deve preservare le personalizzazioni e risolvere le divergenze.
+Nei pack software il generatore di agent-configuration prepara tutte le 11 skills, risorse, dipendenze e metadati in `.agents/skills/` (Codex e Cursor) e `.claude/skills/` (Claude Code). Mantieni equivalenti le copie dello stesso nome; il manifest registra i file inclusi. Prima di aggiornare confronta le copie e risolvi le divergenze preservando le personalizzazioni.
 
 Una delega usa il nome registrato dell'agente; una skill usa l'invocazione supportata dalla sessione; una risorsa è un file da leggere quando la procedura lo richiede. Non inventare un generico Skill tool su ogni programma. In Claude Code controlla l'accesso a Skill e precarica solo procedure sempre necessarie, mai quelle manuali. `handoff` e `retro` richiedono `/handoff` o `/retro` in Claude Code/Cursor, oppure `$handoff` e `$retro` nei client Codex che supportano questa sintassi; usa il selettore effettivo quando diverso. Se è necessaria un'invocazione dell'utente, attendila senza eludere il blocco leggendo ed eseguendo il file.
 

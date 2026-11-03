@@ -1,6 +1,6 @@
 # PROMPT_AGENTI
 
-Raccolta di istruzioni per agenti e procedure riutilizzabili, per qualsiasi linguaggio o tipo di software. Contiene nove agenti e quattordici skills esportabili. Il laboratorio locale in .codex contiene quattro agenti operativi e sette skills per creare e migliorare questi prodotti. I file esportabili sono istruzioni da fornire alla chat o all'ambiente di lavoro.
+Raccolta di istruzioni per agenti e procedure riutilizzabili, per qualsiasi linguaggio o tipo di software. Contiene nove agenti e undici skills esportabili. Il laboratorio locale in .codex contiene quattro agenti operativi e sette skills per creare e migliorare questi prodotti. I file esportabili sono istruzioni da fornire alla chat o all'ambiente di lavoro.
 
 ## Struttura
 
@@ -15,7 +15,7 @@ PROMPT_AGENTI/
 └── Starter_pack/ # quattro pacchetti esportabili con PROMPTME.md
 ```
 
-`Skills/` è la raccolta unica: contiene le quattro skills del progetto e le dieci scaricate da Matt Pocock e Caveman. Le provenienze e le dipendenze sono documentate nel catalogo delle skills.
+`Skills/` è la raccolta unica: contiene le quattro skills del progetto, cinque scaricate da Matt Pocock e due da Caveman. Le provenienze e le dipendenze sono documentate nel catalogo delle skills.
 
 ## Quale prompt usare
 
@@ -49,14 +49,14 @@ PromptAgent, Evaluation e AgentOptimizer si attivano per i rispettivi compiti; n
 
 ## Come collaborano
 
-La chat principale conserva richiesta, scope, fonti autorizzate e un `TaskState` breve: requisiti `R1…`, criteri, responsabili, dipendenze, stato ed evidenze. Chi riceve il lavoro legge il codice pertinente e conserva anche requisiti bloccati o non completati, con motivo.
+La chat principale conserva richiesta, scope, fonti autorizzate e un `TaskState` breve: requisiti `R1…`, criteri, responsabili, dipendenze, stato ed evidenze. La copertura compare una sola volta nel TaskState; i checkpoint riportano file, sintesi, controlli con comando ed esito, rischi, blocker e prossimo destinatario. Anche i requisiti bloccati o non completati restano con un motivo.
 
 - **Nuovo progetto:** AppStarter imposta la base; Architect interviene per decisioni trasversali; lavorano soltanto i responsabili delle aree necessarie.
 - **Progetto esistente:** un bug o una funzionalità va al responsabile dell'area. Per riordinare, AppStarter ricostruisce ingressi, moduli, dipendenze, risultati e controlli; Architect decide eventuali cambiamenti dei confini.
 - **Interfacce condivise:** Backend e Frontend concordano i contratti quando collegati. AIEngineer collabora con Backend quando una parte AI attraversa il gateway server. Un file ha un solo owner; si parallelizza dopo aver fissato confini e dipendenze.
-- **Consegna:** ogni responsabile passa ID dei requisiti, decisioni, file, verifiche, limiti e prossimo destinatario. Reviewer conclude i lavori che modificano file; i rilievi tornano all'owner per una correzione mirata e un nuovo controllo.
+- **Consegna e review:** la chat principale avvia i ruoli e il Reviewer. Raccoglie i checkpoint degli owner e avvia, quando serve, una sola review finale integrata. Per una modifica locale a un solo file senza impatti su contratti, sicurezza, dati o autenticazione basta la checklist breve; negli altri casi la profondità segue il rischio. Le review intermedie si usano solo per blocker o decisioni che fermano il lavoro. Dopo un rilievo fondato, l'owner fa una correzione e il recheck riguarda il difetto e i file dipendenti; non ripetere controlli validi già riportati dal Reviewer.
 
-AppStarter distingue `NEW`, `EXISTING` e `RUNNING`. Per un'app in uso o dallo stato sconosciuto, il riordino avviene in una copia separata, con baseline, piccoli blocchi reversibili e controlli prima/dopo. Sostituzione della versione attiva e riavvio sono azioni distinte. Il funzionamento dichiarato deve corrispondere alle prove svolte.
+AppStarter distingue `NEW`, `EXISTING` e `RUNNING`. Per un'app in uso o dallo stato sconosciuto, il riordino avviene in una copia separata, con baseline e piccoli blocchi reversibili. Riusa prove ancora valide e ripeti solo quelle invalidate. Test, typecheck, build, lint, benchmark e runtime richiedono autorizzazione pertinente; una richiesta generica di verifica non basta. Sostituzione della versione attiva e riavvio sono azioni distinte. Il funzionamento dichiarato deve corrispondere alle prove svolte.
 
 Si identifica prima il tipo di software e lo stack reale. Server, UI e AI non sono obbligatori; le aree non coperte dai ruoli forniti restano alla chat principale o a un responsabile già autorizzato. La struttura segue le convenzioni del progetto, senza un framework predefinito.
 
@@ -71,7 +71,7 @@ flowchart LR
     C --> E
 ```
 
-1. **Nel progetto:** rendi accessibile Evaluation_pack e segui la fase 1 di PROMPTME: installa Evaluation e le 14 skills complete, verifica il riconoscimento, poi avvia il benchmark. L'agente identifica i ruoli realmente presenti, prepara casi e controlli, esegue le prove consentite e salva il report in `agent-kit/reports/` o nella directory report già designata, fuori dalle cartelle di discovery. Non richiede i nomi dei nostri agenti né uno stack specifico.
+1. **Nel progetto:** rendi accessibile Evaluation_pack e segui la fase 1 di PROMPTME: installa Evaluation e le 11 skills complete, verifica il riconoscimento, poi avvia il benchmark. L'agente identifica i ruoli realmente presenti, prepara casi e controlli, esegue le prove consentite e salva il report in `agent-kit/reports/` o nella directory report già designata, fuori dalle cartelle di discovery. Non richiede i nomi dei nostri agenti né uno stack specifico.
 2. **Qui:** porta il BenchmarkReport e le evidenze necessarie; incolla il prompt 2. AgentOptimizer collega i risultati alle versioni canoniche, applica le revisioni mirate richieste e salva OptimizationReport nella directory report designata: `agent-kit/reports/` per il runtime installato, oppure Agents/ per una semplice raccolta di specifiche non usata per discovery. Nel laboratorio locale i nuovi report seguono le sue istruzioni e restano separati dai prodotti. Se un report manca, può diagnosticare i contratti dalle istruzioni e preparare modifiche da validare.
 3. **Di nuovo nel progetto:** esporta la candidata identificata da versione/hash e falla confrontare con la baseline sugli stessi casi. Una modifica testuale controllata resta `APPLICATO_DA_VALIDARE` finché manca una valutazione sufficiente. La raccomandazione sulla pipeline non effettua una distribuzione.
 
@@ -85,7 +85,7 @@ L'analisi iniziale della raccolta e lo stato delle modifiche sono in [Optimizati
 
 ## Skills
 
-La cartella `Skills/` contiene **14 skills esportabili**, tutte in cartelle identificate con `SKILL.md`. Il [catalogo completo](Skills/README.md) descrive utilizzo, provenienza, dipendenze ed esportazione. Le quattro procedure condivise dei nostri agenti sono:
+La cartella `Skills/` contiene **11 skills esportabili**, tutte in cartelle identificate con `SKILL.md`. Il [catalogo completo](Skills/README.md) descrive utilizzo, provenienza, dipendenze ed esportazione. Le quattro procedure condivise dei nostri agenti sono:
 
 | Skill | Procedura |
 |---|---|
@@ -102,16 +102,16 @@ Gli agenti contengono una sezione **Skills per il task** con condizioni concrete
 
 | Ruolo | Skills aggiuntive e fase |
 |---|---|
-| AppStarter | `grilling` per decisioni iniziali aperte; `codebase-design` per lo scaffold; `safe-refactor` per riordino; `investigate-first` per indagine; `verify-and-stop` per verifica richiesta. |
+| AppStarter | `grilling` per decisioni iniziali aperte; `codebase-design` per lo scaffold; `safe-refactor` per riordino; `investigate-first` per causa incerta. |
 | Architect | `grilling` e `codebase-design` per decisioni e contratti; `safe-refactor` per pianificare il riordino in sola lettura. |
-| Backend e Frontend | `codebase-design` per interfacce locali; `investigate-first` oppure `diagnosing-bugs` per diagnosi; `surgical-patch` per correzioni; `safe-refactor` per riordino; `verify-and-stop` per verifica richiesta. |
+| Backend e Frontend | `codebase-design` per interfacce locali; `investigate-first` per cause incerte; modifica minima per cause chiare; `safe-refactor` per riordino. |
 | AIEngineer | `writing-for-agents` per prompt; `grilling` per obiettivi aperti; progettazione, diagnosi, correzione e refactor nelle sue aree; `pipeline-benchmark` per preparare la consegna a Evaluation. |
-| Reviewer | `verify-and-stop`, `codebase-design` e `writing-for-agents` per i criteri pertinenti; criteri di correzione/refactor e benchmark sulle evidenze consegnate, in sola lettura. |
+| Reviewer | `requirement-traceability`, `codebase-design` e `writing-for-agents` per criteri e prove pertinenti, in sola lettura. |
 | PromptAgent | `writing-for-agents` per scrivere prompt precisi; `grilling` per decisioni sostanziali aperte. |
-| Evaluation | `pipeline-benchmark` per la prova; `grilling` per gates/budget mancanti; indagine e correzione soltanto della propria strumentazione; `verify-and-stop` per gli artefatti. |
-| AgentOptimizer | `writing-for-agents` per revisioni; `grilling` per conflitti da decidere; `retro` su richiesta; `verify-and-stop` e `pipeline-benchmark` per controllo e prova successiva. |
+| Evaluation | `pipeline-benchmark` per un confronto esplicitamente richiesto; `grilling` per gates/budget mancanti; indagine della propria strumentazione con `investigate-first`. |
+| AgentOptimizer | `writing-for-agents` per revisioni; `grilling` per conflitti da decidere; `retro` su richiesta; `requirement-traceability` per i controlli documentali e `pipeline-benchmark` per la prova successiva. |
 
-I passaggi ordinari conservano ID, contratti ed evidenze nel TaskState. `handoff` prepara una consegna a una nuova sessione quando richiesta; `retro` si attiva per una retrospettiva richiesta. La diagnosi riusa le prove già raccolte e approfondisce solo il problema assegnato. Le skills mantengono limiti del ruolo, ownership, autorizzazioni e capacità effettive dell'ambiente.
+I passaggi ordinari conservano ID, contratti ed evidenze nel TaskState. `handoff` prepara una consegna a una nuova sessione quando richiesta; `retro` si attiva per una retrospettiva richiesta. Le cause incerte partono da `investigate-first`; riusa le prove e approfondisci solo se serve al problema assegnato. Le skills mantengono limiti del ruolo, ownership, autorizzazioni e capacità effettive dell'ambiente.
 
 ### Creazione e trasformazione dei dati
 
@@ -139,7 +139,7 @@ La cartella [Starter_pack/](Starter_pack/README.md) contiene quattro pacchetti: 
 
 Ogni pack ha un **PROMPTME.md con il prompt da incollare**; il README indica cosa fornire e il risultato atteso. Per App Starter, Full Stack ed Evaluation rendi accessibile il pack completo e apri il progetto di destinazione nell'assistente. PROMPTME esegue il generatore Python 3.11+ in anteprima, applica le scritture dopo aver risolto i conflitti e controlla l'installazione. Prepara sempre Codex, Claude Code e Cursor; il programma disponibile viene verificato prima del lavoro dipendente. Cover Letter mantiene il processo ChatGPT e il blocco finale personalizzato con conteggio dei caratteri.
 
-I pack includono gli agenti pertinenti e tutte le 14 skills con risorse, dipendenze e metadati. I testi si caricano al verificarsi dei trigger, non tutti a ogni task. La sorgente esportata è distinta dalle configurazioni installate; le personalizzazioni non si sovrascrivono automaticamente. Evaluation installa `evaluation` nell'app; `--phase optimizer` riguarda invece un repository canonico autorizzato. Nel laboratorio locale usa i ruoli di manutenzione esistenti, mantenendoli separati dai prodotti.
+I pack includono gli agenti pertinenti e tutte le 11 skills con risorse, dipendenze e metadati. I testi si caricano al verificarsi dei trigger, non tutti a ogni task. La sorgente esportata è distinta dalle configurazioni installate; le personalizzazioni non si sovrascrivono automaticamente. Evaluation installa `evaluation` nell'app; `--phase optimizer` riguarda invece un repository canonico autorizzato. Nel laboratorio locale usa i ruoli di manutenzione esistenti, mantenendoli separati dai prodotti.
 
 Full_stack_pack include 6 agenti e App_starter_pack ne include 7, entrambi con PromptAgent. Il ruolo crea o migliora il prompt della richiesta usando writing-for-agents e grilling quando necessario, poi prepara il passaggio agli specialisti. Si attiva per questo compito, senza rendere obbligatoria una fase di riscrittura del prompt per ogni attività di sviluppo.
 
