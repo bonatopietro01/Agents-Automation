@@ -1,6 +1,8 @@
 # PROMPT_AGENTI
 
-Raccolta di istruzioni per agenti e procedure riutilizzabili, per qualsiasi linguaggio o tipo di software. Contiene nove agenti e undici skills esportabili. Il laboratorio locale in .codex contiene quattro agenti operativi e sette skills per creare e migliorare questi prodotti. I file esportabili sono istruzioni da fornire alla chat o all'ambiente di lavoro.
+Raccolta di agenti, skills, prompt e starter pack riutilizzabili per progetti software. I materiali in `Agents/`, `Skills/`, `Prompts/` e `Starter_pack/` sono specifiche da fornire all'assistente o all'ambiente di lavoro: copiarli in una cartella non attiva automaticamente gli agenti. Il laboratorio locale in `.codex/` contiene quattro ruoli operativi e sette skills per progettare e mantenere questi prodotti.
+
+**Accesso rapido:** [prompt](#quale-prompt-usare) · [agenti](#agenti) · [skills](#skills) · [starter pack](#starter-pack-pronti-da-copiare) · [laboratorio locale](#laboratorio-locale-per-creare-agenti-e-skills).
 
 ## Struttura
 
@@ -135,7 +137,16 @@ Riferimenti generali per cambiamenti circoscritti e verificabili: [Google Engine
 
 ## Starter pack pronti da copiare
 
-La cartella [Starter_pack/](Starter_pack/README.md) contiene quattro pacchetti: Cover_letter_Pack, Full_stack_pack, App_starter_pack ed Evaluation_pack.
+La cartella [Starter_pack/](Starter_pack/README.md) contiene questi quattro pacchetti disponibili:
+
+| Pack | A cosa serve |
+|---|---|
+| [App_starter_pack](Starter_pack/App_starter_pack/README.md) | Avviare un'app o organizzare un progetto esistente. |
+| [Full_stack_pack](Starter_pack/Full_stack_pack/README.md) | Sviluppare o correggere un progetto esistente. |
+| [Cover_letter_Pack](Starter_pack/Cover_letter_Pack/README.md) | Preparare istruzioni personalizzate per candidature e cover letter. |
+| [Evaluation_pack](Starter_pack/Evaluation_pack/README.md) | Valutare agenti nel progetto e migliorare i prompt canonici in una fase separata. |
+
+Il design di due pack riutilizzabili, uno per wiki e uno per siti web, è documentato in [Wiki e Website starter packs](docs/superpowers/specs/2026-10-24-wiki-and-website-starter-packs-design.md). La proposta prevede scelta del profilo di accesso e fonti autorizzate per ogni wiki, semantica strutturata solo quando serve e gestione completa del ciclo di vita per i siti, con autorizzazione per ogni operazione reale. **I due pack sono ancora in progettazione e non sono inclusi nella cartella installabile.**
 
 Ogni pack ha un **PROMPTME.md con il prompt da incollare**; il README indica cosa fornire e il risultato atteso. Per App Starter, Full Stack ed Evaluation rendi accessibile il pack completo e apri il progetto di destinazione nell'assistente. PROMPTME esegue il generatore Python 3.11+ in anteprima, applica le scritture dopo aver risolto i conflitti e controlla l'installazione. Prepara sempre Codex, Claude Code e Cursor; il programma disponibile viene verificato prima del lavoro dipendente. Cover Letter mantiene il processo ChatGPT e il blocco finale personalizzato con conteggio dei caratteri.
 
