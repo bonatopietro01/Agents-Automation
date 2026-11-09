@@ -1,6 +1,6 @@
 # Skills
 
-Raccolta canonica di **11 skills portabili**: quattro procedure originali, cinque scaricate da Matt Pocock e due da Caveman. Le sette skills del laboratorio locale sono separate dalla raccolta portabile e non vengono esportate nei pack.
+Raccolta di **12 skills portabili**: cinque procedure condivise del progetto, cinque scaricate da Matt Pocock e due da Caveman. Le sette skills del laboratorio locale sono separate dalla raccolta portabile e non vengono esportate nei pack.
 
 ## Struttura comune
 
@@ -17,6 +17,8 @@ Skills/
 │   └── SKILL.md
 ├── pipeline-benchmark/
 │   └── SKILL.md
+├── folder-structure/
+│   └── SKILL.md
 ├── grilling/
 ├── handoff/
 ├── writing-for-agents/
@@ -30,7 +32,7 @@ Ogni cartella contiene il proprio `SKILL.md`. Il campo `name` del frontmatter co
 
 ## Skills del progetto
 
-Le quattro skills condivise sono elencate qui; le sette procedure importate sono descritte più avanti.
+Le cinque skills condivise sono elencate qui; le sette procedure importate sono descritte più avanti.
 
 | Skill | Quando usarla | Utilizzatori |
 |---|---|---|
@@ -38,6 +40,7 @@ Le quattro skills condivise sono elencate qui; le sette procedure importate sono
 | [requirement-traceability](requirement-traceability/SKILL.md) | Conservare requisiti, criteri, responsabili ed evidenze nei passaggi. | Tutti i ruoli coinvolti in task articolati. |
 | [project-graph-context](project-graph-context/SKILL.md) | Consultare grafi pertinenti e verificare le relazioni nelle fonti. | I ruoli che necessitano di contesto e dipendenze. |
 | [pipeline-benchmark](pipeline-benchmark/SKILL.md) | Preparare casi ripetibili, misure e confronti di pipeline. | Evaluation (esecuzione e misure), AIEngineer (prepara la consegna per il confronto), AgentOptimizer (candidate e prova successiva), Reviewer (controlla gli artefatti del benchmark in sola lettura). |
+| [folder-structure](folder-structure/SKILL.md) | Mostrare l’albero attuale, trovare file precisi o rileggere una struttura già esaminata. | PromptAgent, AppStarter, Architect, Evaluation e chi deve individuare percorsi. |
 
 Mappatura dei file precedenti:
 
@@ -74,7 +77,7 @@ Fonti: [mattpocock/skills](https://github.com/mattpocock/skills) e [JuliusBrusse
 - **requirement-traceability:** contiene anche le regole comuni di attivazione delle skills e provenienza dei dati; richiama `grilling` per decisioni aperte, `handoff` per consegna a una nuova sessione richiesta e `retro` per una retrospettiva richiesta. Queste dipendenze si applicano nei rispettivi casi.
 - **pipeline-benchmark:** richiama `requirement-traceability` e `project-graph-context`.
 - **project-graph-context:** include [references/obsidian-workflow.md](project-graph-context/references/obsidian-workflow.md), da leggere per analizzare collaborazione e dipendenze degli agenti nel grafo dei Markdown. Distingue link, contratti e passaggi osservati.
-- Le sette skills scaricate includono `agents/openai.yaml`: sono metadati opzionali per l'ambiente compatibile. Le quattro skills condivise non richiedono quel metadato; conservano SKILL.md e le proprie risorse.
+- Le sette skills scaricate includono `agents/openai.yaml`: sono metadati opzionali per l'ambiente compatibile. Le cinque skills condivise non richiedono quel metadato; conservano SKILL.md e le proprie risorse.
 
 `handoff` e `retro` conservano l'attivazione esplicita prevista dai file scaricati. Disponibilità di tool, subagenti, script e verifiche dipende dall'ambiente di destinazione e dalle autorizzazioni del task.
 
@@ -94,7 +97,7 @@ I nove agenti portabili includono una sezione **Skills per il task**; la [mappa 
 ## Esportare o usare in chat
 
 - Copia **la cartella completa della skill**, incluse risorse e dipendenze pertinenti; conserva attribuzioni e condizioni di licenza della fonte.
-- Per gli starter pack copia solo le undici skills portabili dichiarate, senza file di configurazione specifici del repository sorgente.
+- Per gli starter pack copia le skills portabili dichiarate da `pack.json`, senza file di configurazione specifici del repository sorgente.
 - Per gli agenti di questo repository mantieni `Agents/` e `Skills/` affiancate oppure aggiorna i riferimenti nel pacchetto derivato.
 - In una chat senza accesso ai file allega o incolla i testi necessari con il nome della skill come etichetta: diversi file chiamati `SKILL.md` devono restare riconoscibili.
 - Esempio di richiesta: «Usa la skill `safe-refactor` in `Skills/safe-refactor/SKILL.md` per il riordino richiesto, mantenendo limiti e ownership degli agenti».
@@ -104,7 +107,7 @@ Se una skill o un subagente necessari non sono disponibili, applica la diagnosi 
 
 ## Installazione e attivazione nei tre programmi
 
-Nei pack software il generatore di agent-configuration prepara tutte le 11 skills, risorse, dipendenze e metadati in `.agents/skills/` (Codex e Cursor) e `.claude/skills/` (Claude Code). Mantieni equivalenti le copie dello stesso nome; il manifest registra i file inclusi. Prima di aggiornare confronta le copie e risolvi le divergenze preservando le personalizzazioni.
+Nei pack software il generatore di agent-configuration prepara le skills dichiarate da `pack.json`, con risorse, dipendenze e metadati, in `.agents/skills/` (Codex e Cursor) e `.claude/skills/` (Claude Code). Mantieni equivalenti le copie dello stesso nome; il manifest registra i file inclusi. Prima di aggiornare confronta le copie e risolvi le divergenze preservando le personalizzazioni.
 
 Una delega usa il nome registrato dell'agente; una skill usa l'invocazione supportata dalla sessione; una risorsa è un file da leggere quando la procedura lo richiede. Non inventare un generico Skill tool su ogni programma. In Claude Code controlla l'accesso a Skill e precarica solo procedure sempre necessarie, mai quelle manuali. `handoff` e `retro` richiedono `/handoff` o `/retro` in Claude Code/Cursor, oppure `$handoff` e `$retro` nei client Codex che supportano questa sintassi; usa il selettore effettivo quando diverso. Se è necessaria un'invocazione dell'utente, attendila senza eludere il blocco leggendo ed eseguendo il file.
 

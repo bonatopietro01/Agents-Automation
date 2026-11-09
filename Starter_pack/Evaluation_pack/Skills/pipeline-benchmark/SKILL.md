@@ -1,6 +1,6 @@
 ---
 name: pipeline-benchmark
-description: Costruisci casi ripetibili e misura una pipeline quando l'utente richiede esplicitamente un benchmark o un confronto tra versioni; trasferisci risultati verificabili a chi ne migliora i prompt. Una richiesta generica di verifica non attiva un benchmark.
+description: Costruisci casi ripetibili e misura una pipeline quando l'utente richiede esplicitamente un benchmark o un confronto empirico tra versioni; trasferisci risultati verificabili a chi ne migliora i prompt. Un confronto statico tra testi o una richiesta generica di valutazione non attivano il benchmark.
 ---
 
 # Benchmark di pipeline e trasferimento dei risultati

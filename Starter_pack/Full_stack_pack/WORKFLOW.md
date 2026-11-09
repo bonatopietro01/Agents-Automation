@@ -27,7 +27,7 @@ Il coordinatore delega usando il nome registrato dal manifest e gli strumenti es
 
 ## Installazione nel progetto di destinazione
 
-Segui [PROMPTME.md](PROMPTME.md): identifica progetto e pack, verifica Python 3.11+, esegui il generatore in anteprima, risolvi i conflitti, usa --apply e poi --check. I tre ambienti vengono preparati sempre: `.codex/agents/`, `.claude/agents/`, `.cursor/agents/`; le 11 skills complete sono in `.agents/skills/` e `.claude/skills/`, con contenuti equivalenti. Non creare percorsi globali e non installare questi ruoli nel runtime AI dell'applicazione.
+Segui [PROMPTME.md](PROMPTME.md): identifica progetto e pack, verifica Python 3.11+, esegui il generatore in anteprima, risolvi i conflitti, usa --apply e poi --check. I tre ambienti vengono preparati sempre: `.codex/agents/`, `.claude/agents/`, `.cursor/agents/`; le 12 skills complete sono in `.agents/skills/` e `.claude/skills/`, con contenuti equivalenti. Non creare percorsi globali e non installare questi ruoli nel runtime AI dell'applicazione.
 
 Il manifest `agent-kit/INSTALLATION.json` registra fonti, nomi e hash. Le sezioni delimitate in AGENTS.md e CLAUDE.md collegano il coordinamento senza rimpiazzare istruzioni esistenti. File personalizzati e copie divergenti richiedono una risoluzione esplicita; non sono aggiornamenti automatici. Consulta [installation.md](Skills/agent-configuration/references/installation.md) per il contratto del generatore.
 

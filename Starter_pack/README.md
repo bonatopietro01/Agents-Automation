@@ -8,16 +8,17 @@ Ogni sottocartella è un pacchetto per uno scopo specifico.
 | [Full_stack_pack](Full_stack_pack/README.md) | Sviluppare e correggere un'app esistente, con PromptAgent e AIEngineer quando pertinenti. | [PROMPTME.md](Full_stack_pack/PROMPTME.md) |
 | [App_starter_pack](App_starter_pack/README.md) | Avviare o organizzare un'app, nuova o esistente, con AppStarter e PromptAgent. | [PROMPTME.md](App_starter_pack/PROMPTME.md) |
 | [Evaluation_pack](Evaluation_pack/README.md) | Misurare gli agenti nel progetto e usare le evidenze per migliorare i prompt canonici. | [PROMPTME.md](Evaluation_pack/PROMPTME.md) |
+| [Wiki_starter_pack](Wiki_starter_pack/README.md) | Raccogliere requisiti, progettare e realizzare una wiki nel progetto e prepararne la manutenzione. | [PROMPTME.md](Wiki_starter_pack/PROMPTME.md) |
 
 ## Che cosa fa PROMPTME.md
 
 Ogni PROMPTME contiene il prompt da incollare nella chat che lavora sul progetto di destinazione. App Starter, Full Stack ed Evaluation fanno eseguire il generatore incluso: controllano progetto e configurazioni esistenti, mostrano l'anteprima, applicano l'installazione, eseguono il controllo statico e verificano il riconoscimento nel programma disponibile. Cover Letter conserva il proprio flusso ChatGPT.
 
-Rendi accessibile **l'intero pack**, incluso `pack.json` e tutte le risorse sotto Skills. Puoi copiarlo, per esempio, in `agent-kit/source/`; la sorgente deve restare distinta dai file generati. La sola copia non attiva agenti. Senza filesystem o Python 3.11+ la chat può preparare i passaggi necessari, ma non dichiarare installato il pacchetto. Il generatore non installa Python.
+Rendi accessibile **l'intero pack**. Per App Starter, Full Stack ed Evaluation includi `pack.json` e le risorse delle skill. Puoi copiarli in `agent-kit/source/`, mantenendo la sorgente separata dai file generati. Il loro generatore richiede filesystem e Python 3.11+. Wiki Starter si avvia manualmente dal suo PROMPTME e legge l'agente e le skill dalla cartella copiata.
 
 ## Generatore locale per tre ambienti
 
-Da ciascun pack software:
+Da App Starter, Full Stack o Evaluation:
 
 ```text
 python "<pack>/Skills/agent-configuration/scripts/install_agent_pack.py" --pack "<pack>" --project "<progetto>"
@@ -33,7 +34,7 @@ Sostituisci i segnaposto con percorsi reali. Il comando senza opzioni mostra sol
 | Claude Code | `.claude/agents/<nome>.md` con frontmatter | `.claude/skills/<nome>/SKILL.md` e risorse |
 | Cursor | `.cursor/agents/<nome>.md` con frontmatter | Riusa `.agents/skills/` |
 
-Cursor può scoprire anche le copie Claude: i contenuti dello stesso nome devono restare equivalenti; copie divergenti sono un conflitto. Tutte le 11 skills vengono incluse, ma si caricano solo quelle pertinenti. In Claude Code l'eventuale precaricamento `skills:` inserisce il corpo completo; le skills con invocazione manuale non vanno precaricate. Controlla che il ruolo possa accedere a Skill. Per handoff e retro PROMPTME spiega l'invocazione esplicita nel programma usato.
+Cursor può scoprire anche le copie Claude: i contenuti dello stesso nome devono restare equivalenti; copie divergenti sono un conflitto. Le skills dichiarate dal manifest vengono incluse, ma si caricano solo quelle pertinenti. In Claude Code l'eventuale precaricamento `skills:` inserisce il corpo completo; le skills con invocazione manuale non vanno precaricate. Controlla che il ruolo possa accedere a Skill. Per handoff e retro PROMPTME spiega l'invocazione esplicita nel programma usato.
 
 Il generatore registra fonti, nomi, percorsi e hash in `agent-kit/INSTALLATION.json`, installa `agent-kit/WORKFLOW.md` e integra sezioni delimitate in AGENTS.md e CLAUDE.md. Mantiene il testo esistente e aggiorna automaticamente solo file propri rimasti invariati. Risolve l'unione di più pack senza duplicare i ruoli condivisi; personalizzazioni e conflitti richiedono una risoluzione prima delle scritture. Le configurazioni installate sono autonome; per confrontarle con una versione sorgente usa --check con il relativo --pack.
 

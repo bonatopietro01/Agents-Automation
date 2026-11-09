@@ -14,10 +14,10 @@ PROMPT_AGENTI/
 ├── Agents/     # un file per agente
 ├── Skills/ # tutte le skills: nome-skill/SKILL.md e risorse pertinenti
 ├── Prompts/    # prompt da incollare, per attività distinte
-└── Starter_pack/ # quattro pacchetti esportabili con PROMPTME.md
+└── Starter_pack/ # cinque pacchetti esportabili con PROMPTME.md
 ```
 
-`Skills/` è la raccolta unica: contiene le quattro skills del progetto, cinque scaricate da Matt Pocock e due da Caveman. Le provenienze e le dipendenze sono documentate nel catalogo delle skills.
+`Skills/` è la raccolta canonica. Contiene cinque skills del progetto, cinque scaricate da Matt Pocock e due da Caveman. Le provenienze e le dipendenze sono documentate nel catalogo delle skills.
 
 ## Quale prompt usare
 
@@ -73,7 +73,7 @@ flowchart LR
     C --> E
 ```
 
-1. **Nel progetto:** rendi accessibile Evaluation_pack e segui la fase 1 di PROMPTME: installa Evaluation e le 11 skills complete, verifica il riconoscimento, poi avvia il benchmark. L'agente identifica i ruoli realmente presenti, prepara casi e controlli, esegue le prove consentite e salva il report in `agent-kit/reports/` o nella directory report già designata, fuori dalle cartelle di discovery. Non richiede i nomi dei nostri agenti né uno stack specifico.
+1. **Nel progetto:** rendi accessibile Evaluation_pack e segui la fase 1 di PROMPTME: installa Evaluation e le skills dichiarate dal manifest, verifica il riconoscimento, poi avvia il benchmark. L'agente identifica i ruoli realmente presenti, prepara casi e controlli, esegue le prove consentite e salva il report in `agent-kit/reports/` o nella directory report già designata, fuori dalle cartelle di discovery. Non richiede i nomi dei nostri agenti né uno stack specifico.
 2. **Qui:** porta il BenchmarkReport e le evidenze necessarie; incolla il prompt 2. AgentOptimizer collega i risultati alle versioni canoniche, applica le revisioni mirate richieste e salva OptimizationReport nella directory report designata: `agent-kit/reports/` per il runtime installato, oppure Agents/ per una semplice raccolta di specifiche non usata per discovery. Nel laboratorio locale i nuovi report seguono le sue istruzioni e restano separati dai prodotti. Se un report manca, può diagnosticare i contratti dalle istruzioni e preparare modifiche da validare.
 3. **Di nuovo nel progetto:** esporta la candidata identificata da versione/hash e falla confrontare con la baseline sugli stessi casi. Una modifica testuale controllata resta `APPLICATO_DA_VALIDARE` finché manca una valutazione sufficiente. La raccomandazione sulla pipeline non effettua una distribuzione.
 
@@ -87,7 +87,7 @@ L'analisi iniziale della raccolta e lo stato delle modifiche sono in [Optimizati
 
 ## Skills
 
-La cartella `Skills/` contiene **11 skills esportabili**, tutte in cartelle identificate con `SKILL.md`. Il [catalogo completo](Skills/README.md) descrive utilizzo, provenienza, dipendenze ed esportazione. Le quattro procedure condivise dei nostri agenti sono:
+La cartella `Skills/` contiene **12 skills esportabili**, tutte in cartelle identificate con `SKILL.md`. Il [catalogo completo](Skills/README.md) descrive utilizzo, provenienza, dipendenze ed esportazione. La tabella raccoglie le cinque procedure condivise del progetto.
 
 | Skill | Procedura |
 |---|---|
@@ -95,6 +95,7 @@ La cartella `Skills/` contiene **11 skills esportabili**, tutte in cartelle iden
 | [requirement-traceability](Skills/requirement-traceability/SKILL.md) | Mantiene requisiti, criteri, owner ed evidenze attraverso i passaggi. |
 | [project-graph-context](Skills/project-graph-context/SKILL.md) | Consulta eventuali grafi, verifica nel sorgente e continua dai file quando mancano. |
 | [pipeline-benchmark](Skills/pipeline-benchmark/SKILL.md) | Casi, controlli, tracing, metriche, confronto e contratto del report tra Evaluation e AgentOptimizer. |
+| [folder-structure](Skills/folder-structure/SKILL.md) | Mostrare l’albero attuale, trovare file precisi o rileggere una struttura già esaminata. |
 
 Le sette skills locali sono separate nel [laboratorio .codex](.codex/README.md#skills-locali) e non si esportano nei pack.
 
@@ -104,13 +105,13 @@ Gli agenti contengono una sezione **Skills per il task** con condizioni concrete
 
 | Ruolo | Skills aggiuntive e fase |
 |---|---|
-| AppStarter | `grilling` per decisioni iniziali aperte; `codebase-design` per lo scaffold; `safe-refactor` per riordino; `investigate-first` per causa incerta. |
-| Architect | `grilling` e `codebase-design` per decisioni e contratti; `safe-refactor` per pianificare il riordino in sola lettura. |
+| AppStarter | `folder-structure` per localizzare file o mappare cartelle su richiesta; `grilling` per decisioni iniziali aperte; `codebase-design` per lo scaffold; `safe-refactor` per riordino; `investigate-first` per causa incerta. |
+| Architect | `folder-structure` per localizzare percorsi o rileggere i rami pertinenti; `grilling` e `codebase-design` per decisioni e contratti; `safe-refactor` per pianificare il riordino in sola lettura. |
 | Backend e Frontend | `codebase-design` per interfacce locali; `investigate-first` per cause incerte; modifica minima per cause chiare; `safe-refactor` per riordino. |
 | AIEngineer | `writing-for-agents` per prompt; `grilling` per obiettivi aperti; progettazione, diagnosi, correzione e refactor nelle sue aree; `pipeline-benchmark` per preparare la consegna a Evaluation. |
 | Reviewer | `requirement-traceability`, `codebase-design` e `writing-for-agents` per criteri e prove pertinenti, in sola lettura. |
-| PromptAgent | `writing-for-agents` per scrivere prompt precisi; `grilling` per decisioni sostanziali aperte. |
-| Evaluation | `pipeline-benchmark` per un confronto esplicitamente richiesto; `grilling` per gates/budget mancanti; indagine della propria strumentazione con `investigate-first`. |
+| PromptAgent | `folder-structure` per localizzare file o orientarsi in cartelle pertinenti; `writing-for-agents` per scrivere prompt precisi; `grilling` per decisioni sostanziali aperte. |
+| Evaluation | `folder-structure` per localizzare istruzioni, configurazioni o artefatti quando serve; `pipeline-benchmark` per benchmark o confronto empirico esplicitamente richiesto; confronto statico di prompt e fonti nell'analisi documentale; `grilling` per gates/budget mancanti; indagine della propria strumentazione con `investigate-first`. |
 | AgentOptimizer | `writing-for-agents` per revisioni; `grilling` per conflitti da decidere; `retro` su richiesta; `requirement-traceability` per i controlli documentali e `pipeline-benchmark` per la prova successiva. |
 
 I passaggi ordinari conservano ID, contratti ed evidenze nel TaskState. `handoff` prepara una consegna a una nuova sessione quando richiesta; `retro` si attiva per una retrospettiva richiesta. Le cause incerte partono da `investigate-first`; riusa le prove e approfondisci solo se serve al problema assegnato. Le skills mantengono limiti del ruolo, ownership, autorizzazioni e capacità effettive dell'ambiente.
@@ -137,7 +138,7 @@ Riferimenti generali per cambiamenti circoscritti e verificabili: [Google Engine
 
 ## Starter pack pronti da copiare
 
-La cartella [Starter_pack/](Starter_pack/README.md) contiene questi quattro pacchetti disponibili:
+La cartella [Starter_pack/](Starter_pack/README.md) contiene cinque pacchetti:
 
 | Pack | A cosa serve |
 |---|---|
@@ -145,12 +146,13 @@ La cartella [Starter_pack/](Starter_pack/README.md) contiene questi quattro pacc
 | [Full_stack_pack](Starter_pack/Full_stack_pack/README.md) | Sviluppare o correggere un progetto esistente. |
 | [Cover_letter_Pack](Starter_pack/Cover_letter_Pack/README.md) | Preparare istruzioni personalizzate per candidature e cover letter. |
 | [Evaluation_pack](Starter_pack/Evaluation_pack/README.md) | Valutare agenti nel progetto e migliorare i prompt canonici in una fase separata. |
+| [Wiki_starter_pack](Starter_pack/Wiki_starter_pack/README.md) | Progettare e realizzare una wiki nel progetto, con domande mirate, tappe e manutenzione dei dati. |
 
-Il design di due pack riutilizzabili, uno per wiki e uno per siti web, è documentato in [Wiki e Website starter packs](docs/superpowers/specs/2026-10-24-wiki-and-website-starter-packs-design.md). La proposta prevede scelta del profilo di accesso e fonti autorizzate per ogni wiki, semantica strutturata solo quando serve e gestione completa del ciclo di vita per i siti, con autorizzazione per ogni operazione reale. **I due pack sono ancora in progettazione e non sono inclusi nella cartella installabile.**
+Wiki Starter si avvia incollando il suo PROMPTME dopo aver reso accessibile la cartella nel progetto. Il pack per siti web resta una [proposta di design](docs/superpowers/specs/2026-10-24-wiki-and-website-starter-packs-design.md).
 
 Ogni pack ha un **PROMPTME.md con il prompt da incollare**; il README indica cosa fornire e il risultato atteso. Per App Starter, Full Stack ed Evaluation rendi accessibile il pack completo e apri il progetto di destinazione nell'assistente. PROMPTME esegue il generatore Python 3.11+ in anteprima, applica le scritture dopo aver risolto i conflitti e controlla l'installazione. Prepara sempre Codex, Claude Code e Cursor; il programma disponibile viene verificato prima del lavoro dipendente. Cover Letter mantiene il processo ChatGPT e il blocco finale personalizzato con conteggio dei caratteri.
 
-I pack includono gli agenti pertinenti e tutte le 11 skills con risorse, dipendenze e metadati. I testi si caricano al verificarsi dei trigger, non tutti a ogni task. La sorgente esportata è distinta dalle configurazioni installate; le personalizzazioni non si sovrascrivono automaticamente. Evaluation installa `evaluation` nell'app; `--phase optimizer` riguarda invece un repository canonico autorizzato. Nel laboratorio locale usa i ruoli di manutenzione esistenti, mantenendoli separati dai prodotti.
+App Starter, Full Stack ed Evaluation includono gli agenti pertinenti e le skills dichiarate dal rispettivo manifest, con le relative risorse. I testi si caricano secondo il task. La sorgente esportata è distinta dalle configurazioni installate; le personalizzazioni non si sovrascrivono automaticamente. Evaluation installa `evaluation` nell'app; `--phase optimizer` riguarda invece un repository canonico autorizzato. Nel laboratorio locale usa i ruoli di manutenzione esistenti, mantenendoli separati dai prodotti.
 
 Full_stack_pack include 6 agenti e App_starter_pack ne include 7, entrambi con PromptAgent. Il ruolo crea o migliora il prompt della richiesta usando writing-for-agents e grilling quando necessario, poi prepara il passaggio agli specialisti. Si attiva per questo compito, senza rendere obbligatoria una fase di riscrittura del prompt per ogni attività di sviluppo.
 
@@ -162,7 +164,7 @@ requirement-traceability chiarisce selezione dei ruoli, attivazioni e diagnosi q
 
 ## Installazione runtime nei progetti software — 14 ottobre 2026
 
-Il [generatore locale](Skills/agent-configuration/scripts/install_agent_pack.py) usa Python 3.11+ e la sola libreria standard. Ogni pack software include una copia completa. La sintassi è:
+Il [generatore locale](Skills/agent-configuration/scripts/install_agent_pack.py) usa Python 3.11+ e la sola libreria standard. App Starter, Full Stack ed Evaluation ne includono una copia completa. La sintassi è:
 
 ```text
 python "<pack>/Skills/agent-configuration/scripts/install_agent_pack.py" --pack "<pack>" --project "<progetto>"

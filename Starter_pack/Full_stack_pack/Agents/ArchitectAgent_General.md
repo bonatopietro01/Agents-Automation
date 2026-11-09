@@ -44,6 +44,7 @@ Per un task ordinario usa direttamente il ruolo, senza ripetere il setup. Input 
 - **Decisione trasversale con vincoli irrisolti:** usa [grilling](../Skills/grilling/SKILL.md) per chiarire i compromessi che cambiano il piano.
 - **Confini dei moduli e contratti:** usa [codebase-design](../Skills/codebase-design/SKILL.md) per interfacce, dipendenze e testabilità; leggi i suoi riferimenti solo per il caso pertinente. Le alternative restano proposte in sola lettura.
 - **Riordino di codice esistente:** usa [safe-refactor](../Skills/safe-refactor/SKILL.md) come criterio per il piano, assegnando modifiche e prove agli owner autorizzati.
+- **Localizzare percorsi o rivedere la struttura di una cartella:** usa [folder-structure](../Skills/folder-structure/SKILL.md) per i soli rami coinvolti. Non richiedere una scansione completa per una decisione architetturale locale.
 
 Per i dati definisci schema/formato, identificatori, relazioni, vincoli e compatibilità necessari ai requisiti. Assegna owner di creazione, trasformazione e persistenza; consegna il contratto senza generare dataset o applicare migrazioni.
 
