@@ -159,12 +159,6 @@ App Starter, Full Stack, and Evaluation include the relevant agents and skills d
 
 Full_stack_pack includes 7 agents and App_starter_pack includes 8. Both include PromptAgent and GraphifyAgent. PromptAgent creates or improves the request prompt using writing-for-agents and grilling when needed, then prepares a handoff to specialists. GraphifyAgent creates or updates the code graph only on explicit request. It is not a mandatory development phase.
 
-## Instruction review — October 11, 2026
-
-PromptAgent now explicitly describes the transition from grilling to the final prompt. A PRD is produced only when requested and saved by the authorized owner, while PromptAgent remains read-only. The Full Stack and App Starter pack PROMPTMEs include this activation without imposing it on already defined development requests.
-
-requirement-traceability clarifies role selection, activations, and diagnosis when skills or delegation are missing. agent-configuration describes comparing exported copies before updates. Imported procedures retain their purpose and attributions. Program-specific references are adapted, and packs derive from the canonical sources. Details and limits are in [OptimizationReport.md](Agents/OptimizationReport.md).
-
 ## Runtime installation in software projects — October 14, 2026
 
 The [local generator](Skills/agent-configuration/scripts/install_agent_pack.py) uses Python 3.11+ and the standard library only. App Starter, Full Stack, and Evaluation each include a complete copy. The syntax is:
