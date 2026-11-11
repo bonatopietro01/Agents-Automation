@@ -1,6 +1,6 @@
 # Full_stack_pack
 
-Sviluppare funzionalità o correggere problemi in un progetto esistente. Include PromptAgent, Architect, Backend, Frontend, AIEngineer e Reviewer; gli specialisti lavorano solo nelle aree presenti nello stack reale.
+Sviluppare funzionalità o correggere problemi in un progetto esistente. Include PromptAgent, Architect, Backend, Frontend, AIEngineer, Reviewer e GraphifyAgent; gli specialisti lavorano solo nelle aree presenti nello stack reale.
 
 ## Installazione e uso
 
@@ -23,11 +23,15 @@ Dopo i chiarimenti prepara il prompt con obiettivo, requisiti, vincoli, criteri 
 
 Se la richiesta di sviluppo è già definita, puoi coinvolgere direttamente i responsabili senza una fase obbligatoria di PromptAgent.
 
+## GraphifyAgent nel workflow
+
+Usa [GraphifyAgent](Agents/GraphifyAgent_General.md) soltanto quando chiedi esplicitamente di creare o aggiornare il grafo del codice. Il corpus predefinito è il codice e gli artefatti Graphify vanno in `graphify-out/`. Graphify e la sua skill ufficiale sono dipendenze esterne: il pack non le installa. L'agente verifica versione e supporto code-only prima dell'esecuzione, non esegue estrazione semantica e non modifica sorgenti, `.gitignore`, `.obsidian/graph.json` o configurazioni globali. Per consultare un grafo già esistente usa `project-graph-context` senza rigenerarlo.
+
 ## Contenuto e aggiornamenti
 
 - [PROMPTME.md](PROMPTME.md): installazione runtime e prompt operativo.
 - [WORKFLOW.md](WORKFLOW.md): collaborazione e regole comuni.
-- `Agents/`: specifiche esportate dei sei ruoli inclusi.
+- `Agents/`: specifiche esportate dei sette ruoli inclusi.
 - [Skills/README.md](Skills/README.md): catalogo e dipendenze delle skills incluse. Leggi o carica solo quelle attivate dal task; non precaricarle tutte se il runtime supporta l'uso condizionale.
 
 Le specifiche canoniche restano in `Agents/` e `Skills/` nel repository PROMPT_AGENTI. I file adattati nel progetto di destinazione sono copie derivate: non si aggiornano automaticamente. Prima di distribuirne una versione nuova confronta e conserva le personalizzazioni del progetto.

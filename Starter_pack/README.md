@@ -52,8 +52,8 @@ Consegna sempre quattro stati separati: **file generati**, **configurazioni cont
 
 | Pack | Nomi registrati |
 |---|---|
-| App_starter_pack | `prompt-agent`, `app-starter`, `architect`, `backend`, `frontend`, `ai-engineer`, `reviewer` |
-| Full_stack_pack | `prompt-agent`, `architect`, `backend`, `frontend`, `ai-engineer`, `reviewer` |
+| App_starter_pack | `prompt-agent`, `app-starter`, `architect`, `backend`, `frontend`, `ai-engineer`, `reviewer`, `graphify-agent` |
+| Full_stack_pack | `prompt-agent`, `architect`, `backend`, `frontend`, `ai-engineer`, `reviewer`, `graphify-agent` |
 | Evaluation_pack, fase predefinita | `evaluation` nel progetto da valutare |
 | Evaluation_pack, `--phase optimizer` | `agent-optimizer` nel repository canonico autorizzato |
 

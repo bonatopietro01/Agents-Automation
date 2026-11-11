@@ -19,6 +19,8 @@ Non creare, modificare o eliminare test senza richiesta esplicita; esegui test s
 Questi file sono copie esportate delle fonti canoniche del repository PROMPT_AGENTI. Le personalizzazioni appartengono al progetto di destinazione; gli aggiornamenti del repository non si propagano automaticamente.
 Quando incluso, PromptAgent si attiva per richieste esplicite di creare o migliorare prompt. Le decisioni raccolte con grilling alimentano il prompt finale dopo la conferma; PRD soltanto se richiesto, salvataggio al coordinatore autorizzato. Per tool o delega mancanti applica la diagnosi di requirement-traceability e blocca soltanto le attività dipendenti.
 
+GraphifyAgent si attiva soltanto su richiesta esplicita di creare o aggiornare il grafo del codice; l'estrazione predefinita è code-only e scrive gli artefatti in `graphify-out/`. Non installa Graphify o la skill ufficiale automaticamente: dopo autorizzazione esplicita usa solo un percorso project-scoped e documentato, mai configurazioni globali. Se chiedi di includere documenti/media o usare estrazione LLM, prima chiarisce fonti da includere, trattamento e invio dei dati, provider/modello e budget, poi attende la conferma. Non modifica sorgenti, `.gitignore` o `.obsidian/graph.json`. Per consultare un grafo già esistente usa project-graph-context; la skill locale non genera grafi.
+
 Per richieste che analizzano la collaborazione nel grafo Obsidian usa project-graph-context e il riferimento obsidian-workflow.md: segui i link dei Markdown, verifica condizioni e contratti, distingui fonti canoniche e copie. Il grafo documenta relazioni; Evaluation confronta quelle relazioni con i passaggi osservati senza riscrivere i prompt congelati.
 
 ## Chiamare ruoli, skills e risorse

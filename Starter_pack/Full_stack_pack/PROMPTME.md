@@ -23,13 +23,14 @@ La chat principale coordina. Ogni incarico include obiettivo, requisiti, file, p
 
 Consegna quattro stati separati con evidenze: file generati, configurazioni controllate, elementi riconosciuti, chiamate effettivamente verificate. La presenza dei file e un --check riuscito non dimostrano esecuzione dei tre programmi.
 
-Nomi registrati del pack: `prompt-agent`, `architect`, `backend`, `frontend`, `ai-engineer`, `reviewer`.
+Nomi registrati del pack: `prompt-agent`, `architect`, `backend`, `frontend`, `ai-engineer`, `reviewer`, `graphify-agent`.
 
 ## Richiesta operativa
 
 Voglio sviluppare o migliorare l'app presente in questo progetto. Se non ho indicato una funzionalità o un problema, chiedimi quale risultato ottenere; la sola disponibilità del pack non autorizza un riordino generale. Prima di modificare, analizza istruzioni locali, struttura, stack reale, ingressi e file pertinenti. Preserva comportamento e convenzioni valide. Non presumere linguaggi o framework.
 
 Se ti chiedo di creare o migliorare il prompt della richiesta, coinvolgi PromptAgent: chiarisce i punti decisionali con grilling quando necessario e restituisce il prompt pronto. Il coordinatore conserva le decisioni nel TaskState. Se chiedo soltanto un prompt, fermati dopo la consegna; l'esecuzione successiva deve risultare dalla mia richiesta. Per sviluppo già definito passa direttamente ai ruoli pertinenti. PromptAgent resta in sola lettura e non sostituisce Architect o gli specialisti.
+Se chiedo esplicitamente di creare o aggiornare il grafo del codice, coinvolgi GraphifyAgent; per una ricerca semplice o la consultazione di un grafo esistente non rigenerarlo. Usa il corpus code-only e `graphify-out/`; Graphify/skill ufficiale è una dipendenza esterna e non va installata automaticamente.
 Usa i ruoli registrati dall’installazione; risolvi eventuali equivalenze e personalizzazioni tramite agent-configuration prima di delegare. Solo la chat principale avvia subagenti e Reviewer. Architect decide in sola lettura soltanto contratti e scelte trasversali. Backend possiede server, business logic, dati e integrazioni; Frontend interfacce e consumo API; AIEngineer prompt, estrazione, retrieval e orchestrazione AI quando il progetto li richiede. Non introdurre AI o aree inesistenti. Dopo i checkpoint degli owner, la chat principale avvia al massimo una review finale sul lavoro integrato; review intermedie solo per blocker o decisioni che impediscono il seguito.
 
 La chat principale coordina requisiti R1..., criteri verificabili, owner, dipendenze, decisioni, stato ed evidenze nel TaskState; la copertura compare solo lì. Assegna un owner per file condiviso, concorda contratti prima di dividere il lavoro e conserva anche requisiti bloccati o fuori scope con motivo. Ogni owner invia un checkpoint compatto con file modificati, sintesi, controlli svolti con comando/metodo ed esito, rischi aperti, blocker e prossimo destinatario; rimanda al TaskState per la copertura. Usa grilling soltanto per decisioni sostanziali mancanti, con proposte consigliate; ricava i fatti dal repository.

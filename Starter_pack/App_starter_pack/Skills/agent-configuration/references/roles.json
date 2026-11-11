@@ -9,6 +9,7 @@
     "ai-engineer": {"file": "AIEngineerAgent_General.md", "description": "Implementa prompt applicativi, estrazione, retrieval e orchestrazione AI.", "readonly": false},
     "reviewer": {"file": "ReviewerAgent_General.md", "description": "Controlla modifiche, requisiti ed evidenze in sola lettura e restituisce rilievi agli owner.", "readonly": true},
     "evaluation": {"file": "EvaluationAgent_General.md", "description": "Valuta agenti nel progetto con benchmark autorizzati e report; distingue misure e analisi statica.", "readonly": false},
-    "agent-optimizer": {"file": "AgentOptimizerAgent_General.md", "description": "Analizza o migliora prompt canonici con evidenze dei progetti, mantenendo immutabili le varianti sotto benchmark.", "readonly": false}
+    "agent-optimizer": {"file": "AgentOptimizerAgent_General.md", "description": "Analizza o migliora prompt canonici con evidenze dei progetti, mantenendo immutabili le varianti sotto benchmark.", "readonly": false},
+    "graphify-agent": {"file": "GraphifyAgent_General.md", "description": "Crea o aggiorna su richiesta il grafo del codice in graphify-out/ con Graphify e corpus code-only.", "readonly": false}
   }
 }

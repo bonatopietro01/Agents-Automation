@@ -23,7 +23,7 @@ La chat principale coordina. Ogni incarico include obiettivo, requisiti, file, p
 
 Consegna quattro stati separati con evidenze: file generati, configurazioni controllate, elementi riconosciuti, chiamate effettivamente verificate. La presenza dei file e un --check riuscito non dimostrano esecuzione dei tre programmi.
 
-Nomi registrati del pack: `prompt-agent`, `app-starter`, `architect`, `backend`, `frontend`, `ai-engineer`, `reviewer`.
+Nomi registrati del pack: `prompt-agent`, `app-starter`, `architect`, `backend`, `frontend`, `ai-engineer`, `reviewer`, `graphify-agent`.
 
 ## Richiesta operativa
 
@@ -35,6 +35,7 @@ Voglio impostare questo progetto con AppStarter. Se manca l'idea, chiedimela; se
 Usa grilling per decisioni importanti ancora aperte: cerca autonomamente i fatti nei file, proponi risposte consigliate e attendi la conferma del quadro prima dell'implementazione. Non ripetere domande già risolte. Non presumere Flask, React o un altro stack. Consulta documentazione ufficiale quando servono versioni e compatibilità aggiornate; dichiara verifiche indisponibili.
 
 Se ti chiedo di creare o migliorare il prompt della richiesta, coinvolgi PromptAgent: chiarisce i punti decisionali con grilling quando necessario e restituisce il prompt pronto. Il coordinatore conserva le decisioni nel TaskState. Se chiedo soltanto un prompt, fermati dopo la consegna; l'esecuzione successiva deve risultare dalla mia richiesta. Per sviluppo già definito passa direttamente ai ruoli pertinenti. PromptAgent resta in sola lettura e non sostituisce Architect o gli specialisti.
+Se chiedo esplicitamente di creare o aggiornare il grafo del codice, coinvolgi GraphifyAgent; per una ricerca semplice o la consultazione di un grafo esistente non rigenerarlo. Usa il corpus code-only e `graphify-out/`; Graphify/skill ufficiale è una dipendenza esterna e non va installata automaticamente.
 Il preflight di agent-configuration conserva gli agenti equivalenti e segnala i conflitti prima di installare; non creare copie concorrenti dello stesso ruolo. AppStarter imposta la base; Architect definisce contratti trasversali in sola lettura; Backend, Frontend e AIEngineer intervengono soltanto nelle aree presenti. La chat principale coordina TaskState con requisiti R1..., criteri, owner, dipendenze, stato ed evidenze.
 
 Per NEW prepara scaffold, ingressi, configurazioni senza segreti, istruzioni di avvio, collocazione di test, cache e dati quando necessari. Non aggiungere infrastruttura speculativa. Implementa soltanto le funzionalità iniziali richieste.

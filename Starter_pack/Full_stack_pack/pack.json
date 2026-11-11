@@ -1,6 +1,6 @@
 {
   "schema": 1,
   "id": "full-stack-pack",
-  "phases": {"project": ["prompt-agent", "architect", "backend", "frontend", "ai-engineer", "reviewer"]},
+  "phases": {"project": ["prompt-agent", "architect", "backend", "frontend", "ai-engineer", "reviewer", "graphify-agent"]},
   "skills": ["agent-configuration", "requirement-traceability", "project-graph-context", "pipeline-benchmark", "grilling", "handoff", "writing-for-agents", "codebase-design", "retro", "investigate-first", "safe-refactor", "folder-structure"]
 }

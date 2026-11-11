@@ -1,201 +1,204 @@
 # PROMPT_AGENTI
 
-Raccolta di agenti, skills, prompt e starter pack riutilizzabili per progetti software. I materiali in `Agents/`, `Skills/`, `Prompts/` e `Starter_pack/` sono specifiche da fornire all'assistente o all'ambiente di lavoro: copiarli in una cartella non attiva automaticamente gli agenti. Il laboratorio locale in `.codex/` contiene quattro ruoli operativi e sette skills per progettare e mantenere questi prodotti.
+A collection of reusable agents, skills, prompts, and starter packs for software projects. The materials in `Agents/`, `Skills/`, `Prompts/`, and `Starter_pack/` are specifications to provide to an assistant or work environment. Copying them into a folder does not automatically activate the agents. The local laboratory in `.codex/` contains four working roles and seven skills for designing and maintaining these products.
 
-**Accesso rapido:** [prompt](#quale-prompt-usare) · [agenti](#agenti) · [skills](#skills) · [starter pack](#starter-pack-pronti-da-copiare) · [laboratorio locale](#laboratorio-locale-per-creare-agenti-e-skills).
+**Quick links:** [Prompts](#which-prompt-should-i-use) · [Agents](#agents) · [Skills](#skills) · [Starter packs](#ready-to-copy-starter-packs) · [Local laboratory](#local-laboratory-for-creating-agents-and-skills).
 
-## Struttura
+## Structure
 
 ```text
 PROMPT_AGENTI/
 ├── README.md
-├── AGENTS.md   # istruzioni del coordinatore locale
-├── .codex/     # laboratorio locale: agents/, skills/, configurazione e prompt
-├── Agents/     # un file per agente
-├── Skills/ # tutte le skills: nome-skill/SKILL.md e risorse pertinenti
-├── Prompts/    # prompt da incollare, per attività distinte
-└── Starter_pack/ # cinque pacchetti esportabili con PROMPTME.md
+├── AGENTS.md   # local coordinator instructions
+├── .codex/     # local laboratory: agents/, skills/, configuration, and prompts
+├── Agents/     # one file per agent
+├── Skills/     # all skills: skill-name/SKILL.md and relevant resources
+├── Prompts/    # prompts to paste for specific tasks
+└── Starter_pack/ # five exportable packs with PROMPTME.md
 ```
 
-`Skills/` è la raccolta canonica. Contiene cinque skills del progetto, cinque scaricate da Matt Pocock e due da Caveman. Le provenienze e le dipendenze sono documentate nel catalogo delle skills.
+`Skills/` is the canonical collection. It contains five project skills, five downloaded from Matt Pocock, and two from Caveman. Their origins and dependencies are documented in the skills catalog.
 
-## Quale prompt usare
+## Which prompt should I use?
 
-| File | Uso |
+| File | Use |
 |---|---|
-| [CreaAppDaZero.md](Prompts/CreaAppDaZero.md) | Dall'idea a una nuova app: configura i ruoli pertinenti e prepara la base iniziale. |
-| [RiorganizzaAppEsistente.md](Prompts/RiorganizzaAppEsistente.md) | Analizza e riordina un progetto già creato, proteggendo l'eventuale istanza in uso. |
-| [CoverLetter.md](Prompts/CoverLetter.md) | Chiede CV, priorità, paragrafi e 2–3 lettere di esempio; genera le istruzioni personalizzate per le candidature. |
-| [ValutaEMiglioraAgenti.md](Prompts/ValutaEMiglioraAgenti.md) | Due attivazioni: benchmark nel progetto e revisione dei prompt nel repository canonico. |
-| [Laboratorio locale](.codex/PROMPTME.md) | Chiarisce, progetta e valuta agenti e skills di questa raccolta entro uno scope esplicito. |
+| [CreaAppDaZero.md](Prompts/CreaAppDaZero.md) | Go from an idea to a new app. Configure the relevant roles and prepare the initial foundation. |
+| [RiorganizzaAppEsistente.md](Prompts/RiorganizzaAppEsistente.md) | Analyze and reorganize an existing project while protecting any instance currently in use. |
+| [CoverLetter.md](Prompts/CoverLetter.md) | Requests a CV, priorities, paragraphs, and 2–3 sample letters, then generates customized application instructions. |
+| [ValutaEMiglioraAgenti.md](Prompts/ValutaEMiglioraAgenti.md) | Two activations: benchmarking in a project and reviewing prompts in the canonical repository. |
+| [Local laboratory](.codex/PROMPTME.md) | Clarifies, designs, and evaluates agents and skills in this collection within an explicit scope. |
 
-Per i primi due rendi accessibile l’intero App_starter_pack, incluso pack.json, agenti, skills e risorse: il PROMPTME prepara i tre ambienti con il generatore e poi avvia il task. In una chat senza filesystem puoi preparare i contenuti, ma non dichiarare installazione o riconoscimento. Un percorso locale da solo non fornisce i file a un’altra chat.
+For the first two prompts, make the entire App_starter_pack available, including pack.json, agents, skills, and resources. PROMPTME prepares the three environments with the generator, then starts the task. In a chat without filesystem access, you can prepare the content, but do not claim that anything was installed or recognized. A local path alone does not provide files to another chat.
 
-Per la cover letter incolla soltanto il suo prompt e fornisci i documenti che richiede. Il limite inferiore a 8.000 caratteri, con tetto operativo di 7.500 e conteggio automatico, riguarda le istruzioni finali personalizzate, non il prompt iniziale.
+For a cover letter, paste only its prompt and provide the requested documents. The limit below 8,000 characters, with an operational cap of 7,500 and automatic counting, applies to the final customized instructions, not the initial prompt.
 
-## Agenti
+## Agents
 
-| File | Responsabilità |
+| File | Responsibility |
 |---|---|
-| [AppStarter](Agents/AppStarterAgent_General.md) | Imposta una nuova app oppure mappa e organizza un progetto esistente. |
-| [Architect](Agents/ArchitectAgent_General.md) | Decide struttura, confini e contratti trasversali in sola lettura. |
-| [Backend](Agents/BackendAgent_General.md) | Codice server, logica applicativa, dati e integrazioni. |
-| [Frontend](Agents/FrontendAgent_General.md) | Interfaccia e consumo delle API nelle aree compatibili con la sua specifica. |
-| [AIEngineer](Agents/AIEngineerAgent_General.md) | Comportamento AI, prompt operativi, estrazione e retrieval. |
-| [Reviewer](Agents/ReviewerAgent_General.md) | Controllo finale dei file modificati, in sola lettura. |
-| [PromptAgent](Agents/PromptAgent_General.md) | Crea o migliora prompt su richiesta. |
-| [Evaluation](Agents/EvaluationAgent_General.md) | Nel progetto: orchestra le prove degli agenti presenti, misura pipeline e handoff, salva BenchmarkReport.md. |
-| [AgentOptimizer](Agents/AgentOptimizerAgent_General.md) | Qui nel repository canonico: usa i report dei progetti, revisiona i prompt e salva OptimizationReport.md. |
+| [AppStarter](Agents/AppStarterAgent_General.md) | Sets up a new app or maps and organizes an existing project. |
+| [Architect](Agents/ArchitectAgent_General.md) | Makes read-only decisions about architecture, boundaries, and cross-cutting contracts. |
+| [Backend](Agents/BackendAgent_General.md) | Server code, application logic, data, and integrations. |
+| [Frontend](Agents/FrontendAgent_General.md) | User interfaces and API consumption in areas covered by its specification. |
+| [AIEngineer](Agents/AIEngineerAgent_General.md) | AI behavior, operational prompts, extraction, and retrieval. |
+| [Reviewer](Agents/ReviewerAgent_General.md) | Read-only final review of modified files. |
+| [PromptAgent](Agents/PromptAgent_General.md) | Creates or improves prompts on request. |
+| [Evaluation](Agents/EvaluationAgent_General.md) | In a project, coordinates tests of the agents present, measures pipelines and handoffs, and saves BenchmarkReport.md. |
+| [AgentOptimizer](Agents/AgentOptimizerAgent_General.md) | In the canonical repository, uses project reports, revises prompts, and saves OptimizationReport.md. |
+| [GraphifyAgent](Agents/GraphifyAgent_General.md) | Creates or updates the code graph in `graphify-out/` on request, using code-only extraction by default. |
 
-PromptAgent, Evaluation e AgentOptimizer si attivano per i rispettivi compiti; non sono allegati obbligatori dei prompt di sviluppo. Sono prodotti esportabili distinti dai quattro ruoli di lavoro locali. Evaluation riusa il ruolo già esistente: il sistema di valutazione ha due responsabilità distinte.
+PromptAgent, Evaluation, AgentOptimizer, and GraphifyAgent activate for their respective tasks. They are not required attachments for development prompts. They are exportable products, separate from the four local working roles. Evaluation reuses the existing role. The evaluation system has two distinct responsibilities.
 
-## Come collaborano
+## How they collaborate
 
-La chat principale conserva richiesta, scope, fonti autorizzate e un `TaskState` breve: requisiti `R1…`, criteri, responsabili, dipendenze, stato ed evidenze. La copertura compare una sola volta nel TaskState; i checkpoint riportano file, sintesi, controlli con comando ed esito, rischi, blocker e prossimo destinatario. Anche i requisiti bloccati o non completati restano con un motivo.
+The main chat keeps the request, scope, authorized sources, and a concise `TaskState` with requirements `R1…`, criteria, owners, dependencies, status, and evidence. Requirement coverage appears once in the TaskState. Checkpoints report files, summaries, checks with commands and results, risks, blockers, and the next recipient. Blocked and incomplete requirements retain a reason.
 
-- **Nuovo progetto:** AppStarter imposta la base; Architect interviene per decisioni trasversali; lavorano soltanto i responsabili delle aree necessarie.
-- **Progetto esistente:** un bug o una funzionalità va al responsabile dell'area. Per riordinare, AppStarter ricostruisce ingressi, moduli, dipendenze, risultati e controlli; Architect decide eventuali cambiamenti dei confini.
-- **Interfacce condivise:** Backend e Frontend concordano i contratti quando collegati. AIEngineer collabora con Backend quando una parte AI attraversa il gateway server. Un file ha un solo owner; si parallelizza dopo aver fissato confini e dipendenze.
-- **Consegna e review:** la chat principale avvia i ruoli e il Reviewer. Raccoglie i checkpoint degli owner e avvia, quando serve, una sola review finale integrata. Per una modifica locale a un solo file senza impatti su contratti, sicurezza, dati o autenticazione basta la checklist breve; negli altri casi la profondità segue il rischio. Le review intermedie si usano solo per blocker o decisioni che fermano il lavoro. Dopo un rilievo fondato, l'owner fa una correzione e il recheck riguarda il difetto e i file dipendenti; non ripetere controlli validi già riportati dal Reviewer.
+- **New project:** AppStarter sets up the foundation. Architect handles cross-cutting decisions. Only the owners of the necessary areas work on the project.
+- **Existing project:** A bug or feature goes to the owner of that area. For reorganization, AppStarter maps entry points, modules, dependencies, outcomes, and checks. Architect decides any boundary changes.
+- **Code graph:** Involve GraphifyAgent only when the user asks to create or update one. The default corpus is code, results go in `graphify-out/`, and the official Graphify skill is an optional external dependency. There is no automatic installation or semantic extraction.
+- **Shared interfaces:** Backend and Frontend agree on contracts when their work is connected. AIEngineer works with Backend when an AI component crosses the server gateway. Each file has one owner. Parallel work starts after boundaries and dependencies are defined.
+- **Handoff and review:** The main chat starts the roles and Reviewer. It collects owner checkpoints and starts one integrated final review when needed. For a local change to a single file with no contract, security, data, or authentication impact, the short checklist is sufficient. Otherwise, review depth follows risk. Interim reviews are reserved for blockers or decisions that stop the work. After a valid finding, the owner makes a correction and the recheck covers the defect and dependent files. Do not repeat checks the Reviewer has already reported as valid.
 
-AppStarter distingue `NEW`, `EXISTING` e `RUNNING`. Per un'app in uso o dallo stato sconosciuto, il riordino avviene in una copia separata, con baseline e piccoli blocchi reversibili. Riusa prove ancora valide e ripeti solo quelle invalidate. Test, typecheck, build, lint, benchmark e runtime richiedono autorizzazione pertinente; una richiesta generica di verifica non basta. Sostituzione della versione attiva e riavvio sono azioni distinte. Il funzionamento dichiarato deve corrispondere alle prove svolte.
+AppStarter distinguishes `NEW`, `EXISTING`, and `RUNNING`. For an app in use or whose status is unknown, reorganization takes place in a separate copy, with a baseline and small reversible steps. Reuse valid evidence and repeat only checks invalidated by the change. Tests, typechecks, builds, linting, benchmarks, and runtime checks require relevant authorization. A generic request to verify is not sufficient. Replacing the active version and restarting it are separate actions. Claims about behavior must match the evidence collected.
 
-Si identifica prima il tipo di software e lo stack reale. Server, UI e AI non sono obbligatori; le aree non coperte dai ruoli forniti restano alla chat principale o a un responsabile già autorizzato. La struttura segue le convenzioni del progetto, senza un framework predefinito.
+First identify the software type and actual stack. A server, UI, or AI component is not mandatory. Areas not covered by the supplied roles remain with the main chat or an already authorized owner. Follow the project's conventions without defaulting to a framework.
 
-## Dal progetto al miglioramento degli agenti
+## From project work to agent improvements
 
 ```mermaid
 flowchart LR
-    P[Agenti nel progetto] --> E[Evaluation: orchestra e misura]
-    E --> R[BenchmarkReport.md nel progetto]
-    R --> O[AgentOptimizer nel repository canonico]
-    O --> C[Prompt candidati e OptimizationReport.md]
+    P[Agents in project] --> E[Evaluation: coordinates and measures]
+    E --> R[BenchmarkReport.md in project]
+    R --> O[AgentOptimizer in canonical repository]
+    O --> C[Candidate prompts and OptimizationReport.md]
     C --> E
 ```
 
-1. **Nel progetto:** rendi accessibile Evaluation_pack e segui la fase 1 di PROMPTME: installa Evaluation e le skills dichiarate dal manifest, verifica il riconoscimento, poi avvia il benchmark. L'agente identifica i ruoli realmente presenti, prepara casi e controlli, esegue le prove consentite e salva il report in `agent-kit/reports/` o nella directory report già designata, fuori dalle cartelle di discovery. Non richiede i nomi dei nostri agenti né uno stack specifico.
-2. **Qui:** porta il BenchmarkReport e le evidenze necessarie; incolla il prompt 2. AgentOptimizer collega i risultati alle versioni canoniche, applica le revisioni mirate richieste e salva OptimizationReport nella directory report designata: `agent-kit/reports/` per il runtime installato, oppure Agents/ per una semplice raccolta di specifiche non usata per discovery. Nel laboratorio locale i nuovi report seguono le sue istruzioni e restano separati dai prodotti. Se un report manca, può diagnosticare i contratti dalle istruzioni e preparare modifiche da validare.
-3. **Di nuovo nel progetto:** esporta la candidata identificata da versione/hash e falla confrontare con la baseline sugli stessi casi. Una modifica testuale controllata resta `APPLICATO_DA_VALIDARE` finché manca una valutazione sufficiente. La raccomandazione sulla pipeline non effettua una distribuzione.
+1. **In the project:** Make Evaluation_pack available and follow phase 1 in PROMPTME. Install Evaluation and the skills declared by the manifest, verify recognition, then start the benchmark. The agent identifies the roles actually present, prepares cases and checks, runs the permitted tests, and saves the report in `agent-kit/reports/` or the already designated report directory, outside discovery folders. It does not require our agent names or a specific stack.
+2. **Here:** Bring the BenchmarkReport and required evidence, then paste prompt 2. AgentOptimizer connects results to canonical versions, applies requested targeted revisions, and saves OptimizationReport in the designated report directory. Use `agent-kit/reports/` for an installed runtime, or Agents/ for a simple collection of specifications that is not used for discovery. In the local laboratory, new reports follow its instructions and remain separate from the products. If a report is missing, it can diagnose contracts from the instructions and prepare changes for validation.
+3. **Back in the project:** Export the candidate identified by version/hash and compare it with the baseline on the same cases. A controlled text change remains `APPLIED_AWAITING_VALIDATION` until there is sufficient evaluation. A pipeline recommendation does not deploy anything.
 
-Il benchmark considera successo, groundedness, chiamate, token, costo, latenza p50/p95, affidabilità, correzioni umane e collaborazione. Confronta i casi peggiorati oltre alle medie. Un nuovo errore critico impedisce la promozione anche quando tempo e costo migliorano.
+The benchmark considers success, groundedness, calls, tokens, cost, p50/p95 latency, reliability, human corrections, and collaboration. Compare cases that regressed as well as averages. A new critical error prevents promotion even when time and cost improve.
 
-Il file va richiamato nella chat o configurato nell'ambiente: la sola copia in una cartella non attiva agenti. Un ambiente con runner e telemetria produce misure reali; l’applicazione dei ruoli nella stessa chat, solo se richiesta esplicitamente, è esplorativa e non sostituisce un benchmark bloccato; la lettura dei file è analisi statica. Token, costo, latenza ed edit non disponibili restano non misurati. In questo repository sono presenti le istruzioni, non un runner già integrato.
+The file must be referenced in the chat or configured in the environment. Merely copying it into a folder does not activate agents. An environment with a runner and telemetry produces real measurements. Applying the roles in the same chat, only when explicitly requested, is exploratory and does not replace a blocked benchmark. Reading files is static analysis. Unavailable token, cost, latency, and edit data remain unmeasured. This repository contains instructions, not an integrated runner.
 
-I report sono artefatti, esclusi dall'inventario degli agenti. Dataset e tracce si riutilizzano dove già esistono; in assenza di convenzioni, la skill prevede BenchmarkCases.jsonl e BenchmarkRuns.jsonl quando necessari. Con runtime installato report, dataset e tracce vanno in `agent-kit/reports/` o nella directory dedicata già designata, fuori da `.codex/agents/`, `.claude/agents/` e `.cursor/agents/`; in una semplice raccolta di specifiche possono restare nella cartella degli agenti se pertinente e non usata per discovery. I trasferimenti fra progetti avvengono con file o accessi autorizzati.
+Reports are artifacts and are excluded from the agent inventory. Reuse datasets and traces where they already exist. If no convention exists, the skill uses BenchmarkCases.jsonl and BenchmarkRuns.jsonl when needed. With an installed runtime, put reports, datasets, and traces in `agent-kit/reports/` or the already designated directory, outside `.codex/agents/`, `.claude/agents/`, and `.cursor/agents/`. In a simple collection of specifications, they may remain in the agent folder when appropriate and when it is not used for discovery. Transfer between projects uses files or authorized access.
 
-L'analisi iniziale della raccolta e lo stato delle modifiche sono in [OptimizationReport.md](Agents/OptimizationReport.md). Il metodo usa tracce e dataset per confronti ripetibili, come descritto nella [documentazione ufficiale OpenAI](https://developers.openai.com/api/docs/guides/agent-evals); le specifiche restano indipendenti dai suoi strumenti.
+The initial analysis of the collection and the status of its changes are in [OptimizationReport.md](Agents/OptimizationReport.md). The method uses traces and datasets for repeatable comparisons, as described in the [official OpenAI documentation](https://developers.openai.com/api/docs/guides/agent-evals). The specifications remain independent of its tools.
 
 ## Skills
 
-La cartella `Skills/` contiene **12 skills esportabili**, tutte in cartelle identificate con `SKILL.md`. Il [catalogo completo](Skills/README.md) descrive utilizzo, provenienza, dipendenze ed esportazione. La tabella raccoglie le cinque procedure condivise del progetto.
+The `Skills/` folder contains **12 exportable skills**, each in a folder with a `SKILL.md` file. The [full catalog](Skills/README.md) describes their uses, origins, dependencies, and export process. The table lists the five shared project procedures.
 
-| Skill | Procedura |
+| Skill | Procedure |
 |---|---|
-| [agent-configuration](Skills/agent-configuration/SKILL.md) | Crea o aggiorna le istruzioni, conservando personalizzazioni valide. |
-| [requirement-traceability](Skills/requirement-traceability/SKILL.md) | Mantiene requisiti, criteri, owner ed evidenze attraverso i passaggi. |
-| [project-graph-context](Skills/project-graph-context/SKILL.md) | Consulta eventuali grafi, verifica nel sorgente e continua dai file quando mancano. |
-| [pipeline-benchmark](Skills/pipeline-benchmark/SKILL.md) | Casi, controlli, tracing, metriche, confronto e contratto del report tra Evaluation e AgentOptimizer. |
-| [folder-structure](Skills/folder-structure/SKILL.md) | Mostrare l’albero attuale, trovare file precisi o rileggere una struttura già esaminata. |
+| [agent-configuration](Skills/agent-configuration/SKILL.md) | Creates or updates instructions while preserving valid customizations. |
+| [requirement-traceability](Skills/requirement-traceability/SKILL.md) | Maintains requirements, criteria, owners, and evidence across handoffs. |
+| [project-graph-context](Skills/project-graph-context/SKILL.md) | Consults available graphs, verifies against source, and continues from files when graphs are missing. |
+| [pipeline-benchmark](Skills/pipeline-benchmark/SKILL.md) | Cases, checks, tracing, metrics, comparison, and the report contract between Evaluation and AgentOptimizer. |
+| [folder-structure](Skills/folder-structure/SKILL.md) | Shows the current tree, finds specific files, or rereads a structure already reviewed. |
 
-Le sette skills locali sono separate nel [laboratorio .codex](.codex/README.md#skills-locali) e non si esportano nei pack.
+The seven local skills are separate in the [.codex laboratory](.codex/README.md#skills-locali) and are not exported in the packs.
 
-Gli agenti contengono una sezione **Skills per il task** con condizioni concrete di utilizzo. La selezione segue requisito, fase e responsabilità; si legge il relativo `SKILL.md` prima di applicarlo. La procedura comune di attivazione, handoff e provenienza dei dati è in `requirement-traceability`. La presenza nel catalogo non rende tutte le skills obbligatorie e non configura automaticamente gli agenti.
+Agents contain a **Skills for the task** section with concrete use conditions. Selection follows the requirement, phase, and responsibility. Read the relevant `SKILL.md` before applying a skill. The common activation, handoff, and data provenance procedure is in `requirement-traceability`. Presence in the catalog does not make every skill mandatory and does not configure agents automatically.
 
-### Collegamento fra ruoli e skills
+### Role-to-skill mapping
 
-| Ruolo | Skills aggiuntive e fase |
+| Role | Additional skills and phase |
 |---|---|
-| AppStarter | `folder-structure` per localizzare file o mappare cartelle su richiesta; `grilling` per decisioni iniziali aperte; `codebase-design` per lo scaffold; `safe-refactor` per riordino; `investigate-first` per causa incerta. |
-| Architect | `folder-structure` per localizzare percorsi o rileggere i rami pertinenti; `grilling` e `codebase-design` per decisioni e contratti; `safe-refactor` per pianificare il riordino in sola lettura. |
-| Backend e Frontend | `codebase-design` per interfacce locali; `investigate-first` per cause incerte; modifica minima per cause chiare; `safe-refactor` per riordino. |
-| AIEngineer | `writing-for-agents` per prompt; `grilling` per obiettivi aperti; progettazione, diagnosi, correzione e refactor nelle sue aree; `pipeline-benchmark` per preparare la consegna a Evaluation. |
-| Reviewer | `requirement-traceability`, `codebase-design` e `writing-for-agents` per criteri e prove pertinenti, in sola lettura. |
-| PromptAgent | `folder-structure` per localizzare file o orientarsi in cartelle pertinenti; `writing-for-agents` per scrivere prompt precisi; `grilling` per decisioni sostanziali aperte. |
-| Evaluation | `folder-structure` per localizzare istruzioni, configurazioni o artefatti quando serve; `pipeline-benchmark` per benchmark o confronto empirico esplicitamente richiesto; confronto statico di prompt e fonti nell'analisi documentale; `grilling` per gates/budget mancanti; indagine della propria strumentazione con `investigate-first`. |
-| AgentOptimizer | `writing-for-agents` per revisioni; `grilling` per conflitti da decidere; `retro` su richiesta; `requirement-traceability` per i controlli documentali e `pipeline-benchmark` per la prova successiva. |
+| AppStarter | `folder-structure` to locate files or map folders on request; `grilling` for open initial decisions; `codebase-design` for scaffolding; `safe-refactor` for reorganization; `investigate-first` when the cause is uncertain. |
+| Architect | `folder-structure` to locate paths or reread relevant branches; `grilling` and `codebase-design` for decisions and contracts; `safe-refactor` to plan reorganization read-only. |
+| Backend and Frontend | `codebase-design` for local interfaces; `investigate-first` when the cause is uncertain; minimal change for clear causes; `safe-refactor` for reorganization. |
+| AIEngineer | `writing-for-agents` for prompts; `grilling` for open objectives; design, diagnosis, fixes, and refactoring in its areas; `pipeline-benchmark` to prepare a handoff to Evaluation. |
+| Reviewer | `requirement-traceability`, `codebase-design`, and `writing-for-agents` for relevant criteria and evidence, read-only. |
+| PromptAgent | `folder-structure` to locate files or navigate relevant folders; `writing-for-agents` to write precise prompts; `grilling` for substantial open decisions. |
+| GraphifyAgent | `folder-structure` when it needs to locate the project root or paths; `project-graph-context` to consult an existing graph. To generate a graph, use a verified Graphify CLI. The official skill is an optional external dependency and is not distributed here. |
+| Evaluation | `folder-structure` to locate instructions, configurations, or artifacts when needed; `pipeline-benchmark` for an explicitly requested benchmark or empirical comparison; static comparison of prompts and sources for document analysis; `grilling` when gates or budgets are missing; `investigate-first` to investigate its own instrumentation. |
+| AgentOptimizer | `writing-for-agents` for revisions; `grilling` for conflicts to resolve; `retro` on request; `requirement-traceability` for document checks and `pipeline-benchmark` for subsequent evaluation. |
 
-I passaggi ordinari conservano ID, contratti ed evidenze nel TaskState. `handoff` prepara una consegna a una nuova sessione quando richiesta; `retro` si attiva per una retrospettiva richiesta. Le cause incerte partono da `investigate-first`; riusa le prove e approfondisci solo se serve al problema assegnato. Le skills mantengono limiti del ruolo, ownership, autorizzazioni e capacità effettive dell'ambiente.
+Routine handoffs preserve IDs, contracts, and evidence in the TaskState. `handoff` prepares a handoff to a new session when requested. `retro` runs a retrospective when requested. Start uncertain-cause investigations with `investigate-first`. Reuse evidence and investigate further only when the assigned problem requires it. Skills preserve role boundaries, ownership, authorization, and the environment's actual capabilities.
 
-### Creazione e trasformazione dei dati
+### Creating and transforming data
 
-AppStarter assegna collocazione e owner; Architect definisce i contratti; Backend realizza persistenza, import/export e seed; Frontend gestisce rappresentazione e mock conformi al contratto; AIEngineer gestisce estrazione, retrieval e dataset della propria area; Evaluation possiede i casi del benchmark; Reviewer controlla provenienza e criteri. Le parti compaiono solo quando pertinenti al progetto. Ogni artefatto mantiene schema, origine, trasformazioni, distinzione reale/sintetico e verifiche secondo la skill comune. Cache, fixture e dati persistenti hanno destinazioni distinguibili; casi e attese di valutazione restano separati dai dati di sviluppo.
+AppStarter assigns a location and owner. Architect defines contracts. Backend implements persistence, import/export, and seeds. Frontend handles representations and mocks that match the contract. AIEngineer handles extraction, retrieval, and datasets in its area. Evaluation owns benchmark cases. Reviewer checks provenance and criteria. Include these parts only when relevant to the project. Each artifact retains its schema, origin, transformations, real/synthetic distinction, and checks according to the shared skill. Caches, fixtures, and persistent data have distinguishable locations. Evaluation cases and expectations remain separate from development data.
 
-Ogni agente ha un file canonico; ogni skill ha una cartella canonica. Per esportare una skill copia tutta la cartella, compresi riferimenti e script necessari, e le eventuali skills da cui dipende. Per il pacchetto dei nostri agenti mantieni `Agents/` e `Skills/` affiancate oppure aggiorna i percorsi nella copia esportata. Il generatore di agent-configuration prepara gli adattamenti Codex, Claude Code e Cursor nei progetti di destinazione, con riferimenti locali indipendenti dal pack sorgente.
+Each agent has one canonical file. Each skill has one canonical folder. To export a skill, copy the entire folder, including required references and scripts, as well as any skills it depends on. For our agent pack, keep `Agents/` and `Skills/` side by side or update the paths in the exported copy. The agent-configuration generator prepares Codex, Claude Code, and Cursor adaptations in target projects, with local references independent of the source pack.
 
-## Laboratorio locale per creare agenti e skills
+## Local laboratory for creating agents and skills
 
-I quattro ruoli operativi sono in [.codex/agents](.codex/README.md): PromptAgent prepara la richiesta con grilling e analisi del grafo; AgentDesigner crea o migliora i prodotti autorizzati; StaticEvaluator controlla istruzioni e collaborazione; RepositoryReviewer revisiona le modifiche in sola lettura. La chat principale coordina e salva i report.
+The four working roles are listed in [.codex/agents](.codex/README.md). PromptAgent prepares requests through grilling and graph analysis. AgentDesigner creates or improves authorized products. StaticEvaluator checks instructions and collaboration. RepositoryReviewer reviews changes read-only. The main chat coordinates the work and saves reports.
 
-Leggi [.codex/README.md](.codex/README.md) per configurazione, skills e interconnessioni; usa [.codex/PROMPTME.md](.codex/PROMPTME.md) per avviare il lavoro. [AGENTS.md](AGENTS.md) stabilisce il routing locale. Le skills locali vengono lette esplicitamente dai file.
+Read [.codex/README.md](.codex/README.md) for configuration, skills, and connections. Use [.codex/PROMPTME.md](.codex/PROMPTME.md) to start work. [AGENTS.md](AGENTS.md) defines local routing. Local skills are read explicitly from their files.
 
-La valutazione del laboratorio è statica. Il workflow generale Evaluation → AgentOptimizer documentato sopra resta un prodotto esportabile distinto; non configura i ruoli di lavoro di questa raccolta. I nuovi report locali vanno in .codex/reports; quelli già in Agents restano storici e possono contenere vecchi percorsi.
+The laboratory's evaluation is static. The general Evaluation → AgentOptimizer workflow above remains a separate exportable product. It does not configure this collection's working roles. New local reports go in .codex/reports. Existing reports in Agents remain historical and may contain old paths.
 
-Agents, Skills, Prompts e Starter_pack non dipendono dal laboratorio. Le configurazioni globali e quelle degli altri progetti non vengono modificate. Il riconoscimento dei ruoli va controllato nell’ambiente disponibile; quando necessario segui il ricaricamento documentato senza presumere l’attivazione.
+Agents, Skills, Prompts, and Starter_pack do not depend on the laboratory. Global configurations and other projects are not modified. Role recognition must be checked in the available environment. When needed, follow the documented reload procedure without assuming activation.
 
-Per usare le nuove condizioni di attivazione, rendi accessibile il catalogo e le skills selezionate: in un workspace può essere disponibile tutta `Skills/`, caricando soltanto i testi pertinenti. In una chat allega i testi necessari con nome e dipendenze. Una skill non fornita resta indisponibile; l'agente segnala il limite e completa le parti indipendenti.
+To use the new activation conditions, make the catalog and selected skills available. In a workspace, all of `Skills/` may be available while loading only the relevant texts. In a chat, attach the required texts with their names and dependencies. If a skill is not provided, it remains unavailable. The agent reports the limitation and completes independent work.
 
-Riferimenti generali per cambiamenti circoscritti e verificabili: [Google Engineering Practices](https://google.github.io/eng-practices/review/developer/small-cls.html) e [Martin Fowler](https://martinfowler.com/bliki/BranchByAbstraction.html).
+General references for scoped, verifiable changes: [Google Engineering Practices](https://google.github.io/eng-practices/review/developer/small-cls.html) and [Martin Fowler](https://martinfowler.com/bliki/BranchByAbstraction.html).
 
-## Starter pack pronti da copiare
+## Ready-to-copy starter packs
 
-La cartella [Starter_pack/](Starter_pack/README.md) contiene cinque pacchetti:
+The [Starter_pack/](Starter_pack/README.md) folder contains five packs:
 
-| Pack | A cosa serve |
+| Pack | Purpose |
 |---|---|
-| [App_starter_pack](Starter_pack/App_starter_pack/README.md) | Avviare un'app o organizzare un progetto esistente. |
-| [Full_stack_pack](Starter_pack/Full_stack_pack/README.md) | Sviluppare o correggere un progetto esistente. |
-| [Cover_letter_Pack](Starter_pack/Cover_letter_Pack/README.md) | Preparare istruzioni personalizzate per candidature e cover letter. |
-| [Evaluation_pack](Starter_pack/Evaluation_pack/README.md) | Valutare agenti nel progetto e migliorare i prompt canonici in una fase separata. |
-| [Wiki_starter_pack](Starter_pack/Wiki_starter_pack/README.md) | Progettare e realizzare una wiki nel progetto, con domande mirate, tappe e manutenzione dei dati. |
+| [App_starter_pack](Starter_pack/App_starter_pack/README.md) | Start an app or organize an existing project. |
+| [Full_stack_pack](Starter_pack/Full_stack_pack/README.md) | Develop or fix an existing project. |
+| [Cover_letter_Pack](Starter_pack/Cover_letter_Pack/README.md) | Prepare customized instructions for applications and cover letters. |
+| [Evaluation_pack](Starter_pack/Evaluation_pack/README.md) | Evaluate agents in a project and improve canonical prompts in a separate phase. |
+| [Wiki_starter_pack](Starter_pack/Wiki_starter_pack/README.md) | Design and build a project wiki, with targeted questions, milestones, and data maintenance. |
 
-Wiki Starter si avvia incollando il suo PROMPTME dopo aver reso accessibile la cartella nel progetto. Il pack per siti web resta una [proposta di design](docs/superpowers/specs/2026-10-24-wiki-and-website-starter-packs-design.md).
+Start Wiki Starter by pasting its PROMPTME after making the folder available in the project. The website pack remains a [design proposal](docs/superpowers/specs/2026-10-24-wiki-and-website-starter-packs-design.md).
 
-Ogni pack ha un **PROMPTME.md con il prompt da incollare**; il README indica cosa fornire e il risultato atteso. Per App Starter, Full Stack ed Evaluation rendi accessibile il pack completo e apri il progetto di destinazione nell'assistente. PROMPTME esegue il generatore Python 3.11+ in anteprima, applica le scritture dopo aver risolto i conflitti e controlla l'installazione. Prepara sempre Codex, Claude Code e Cursor; il programma disponibile viene verificato prima del lavoro dipendente. Cover Letter mantiene il processo ChatGPT e il blocco finale personalizzato con conteggio dei caratteri.
+Each pack has a **PROMPTME.md prompt to paste**. Its README says what to provide and what result to expect. For App Starter, Full Stack, and Evaluation, make the complete pack available and open the target project in the assistant. PROMPTME runs the Python 3.11+ generator in preview mode, applies writes after resolving conflicts, and checks the installation. It prepares Codex, Claude Code, and Cursor. The available program is checked before dependent work starts. Cover Letter retains the ChatGPT process and a customized final block with a character count.
 
-App Starter, Full Stack ed Evaluation includono gli agenti pertinenti e le skills dichiarate dal rispettivo manifest, con le relative risorse. I testi si caricano secondo il task. La sorgente esportata è distinta dalle configurazioni installate; le personalizzazioni non si sovrascrivono automaticamente. Evaluation installa `evaluation` nell'app; `--phase optimizer` riguarda invece un repository canonico autorizzato. Nel laboratorio locale usa i ruoli di manutenzione esistenti, mantenendoli separati dai prodotti.
+App Starter, Full Stack, and Evaluation include the relevant agents and skills declared by their manifests, with their resources. Texts are loaded according to the task. The exported source is separate from installed configurations. Customizations are not automatically overwritten. Evaluation installs `evaluation` in the app. `--phase optimizer` applies to an authorized canonical repository. In this local laboratory, use the existing maintenance roles and keep them separate from the products.
 
-Full_stack_pack include 6 agenti e App_starter_pack ne include 7, entrambi con PromptAgent. Il ruolo crea o migliora il prompt della richiesta usando writing-for-agents e grilling quando necessario, poi prepara il passaggio agli specialisti. Si attiva per questo compito, senza rendere obbligatoria una fase di riscrittura del prompt per ogni attività di sviluppo.
+Full_stack_pack includes 7 agents and App_starter_pack includes 8. Both include PromptAgent and GraphifyAgent. PromptAgent creates or improves the request prompt using writing-for-agents and grilling when needed, then prepares a handoff to specialists. GraphifyAgent creates or updates the code graph only on explicit request. It is not a mandatory development phase.
 
-## Revisione delle istruzioni — 11 ottobre 2026
+## Instruction review — October 11, 2026
 
-PromptAgent ora descrive esplicitamente il passaggio da grilling al prompt finale. Un PRD viene prodotto soltanto quando richiesto e salvato dal responsabile autorizzato, mantenendo PromptAgent in sola lettura. I PROMPTME dei pack Full Stack e App Starter includono questa attivazione, senza imporla alle richieste di sviluppo già definite.
+PromptAgent now explicitly describes the transition from grilling to the final prompt. A PRD is produced only when requested and saved by the authorized owner, while PromptAgent remains read-only. The Full Stack and App Starter pack PROMPTMEs include this activation without imposing it on already defined development requests.
 
-requirement-traceability chiarisce selezione dei ruoli, attivazioni e diagnosi quando mancano skills o delega. agent-configuration descrive il confronto delle copie esportate prima dell’aggiornamento. Le procedure importate mantengono scopo e attribuzioni; i richiami specifici del programma sono adattati e i pack derivano dalle fonti canoniche. Dettagli e limiti nel report [OptimizationReport.md](Agents/OptimizationReport.md).
+requirement-traceability clarifies role selection, activations, and diagnosis when skills or delegation are missing. agent-configuration describes comparing exported copies before updates. Imported procedures retain their purpose and attributions. Program-specific references are adapted, and packs derive from the canonical sources. Details and limits are in [OptimizationReport.md](Agents/OptimizationReport.md).
 
-## Installazione runtime nei progetti software — 14 ottobre 2026
+## Runtime installation in software projects — October 14, 2026
 
-Il [generatore locale](Skills/agent-configuration/scripts/install_agent_pack.py) usa Python 3.11+ e la sola libreria standard. App Starter, Full Stack ed Evaluation ne includono una copia completa. La sintassi è:
+The [local generator](Skills/agent-configuration/scripts/install_agent_pack.py) uses Python 3.11+ and the standard library only. App Starter, Full Stack, and Evaluation each include a complete copy. The syntax is:
 
 ```text
-python "<pack>/Skills/agent-configuration/scripts/install_agent_pack.py" --pack "<pack>" --project "<progetto>"
-python "<pack>/Skills/agent-configuration/scripts/install_agent_pack.py" --pack "<pack>" --project "<progetto>" --apply
-python "<pack>/Skills/agent-configuration/scripts/install_agent_pack.py" --pack "<pack>" --project "<progetto>" --check
+python "<pack>/Skills/agent-configuration/scripts/install_agent_pack.py" --pack "<pack>" --project "<project>"
+python "<pack>/Skills/agent-configuration/scripts/install_agent_pack.py" --pack "<pack>" --project "<project>" --apply
+python "<pack>/Skills/agent-configuration/scripts/install_agent_pack.py" --pack "<pack>" --project "<project>" --check
 ```
 
-Il primo comando mostra l'anteprima. Non installa Python né modifica configurazioni globali. Il generatore prepara tutti e tre gli ambienti:
+The first command shows a preview. It does not install Python or modify global configurations. The generator prepares all three environments:
 
-| Programma | Agenti | Skills |
+| Program | Agents | Skills |
 |---|---|---|
-| Codex | `.codex/agents/<nome>.toml` | `.agents/skills/` |
-| Claude Code | `.claude/agents/<nome>.md` con frontmatter | `.claude/skills/` |
-| Cursor | `.cursor/agents/<nome>.md` con frontmatter | Riusa `.agents/skills/` |
+| Codex | `.codex/agents/<name>.toml` | `.agents/skills/` |
+| Claude Code | `.claude/agents/<name>.md` with frontmatter | `.claude/skills/` |
+| Cursor | `.cursor/agents/<name>.md` with frontmatter | Reuses `.agents/skills/` |
 
-`agent-kit/INSTALLATION.json` registra fonti, nomi registrati, percorsi e hash. `agent-kit/WORKFLOW.md` documenta il coordinamento; sezioni delimitate in AGENTS.md e CLAUDE.md preservano le istruzioni esistenti. I file propri rimasti invariati sono aggiornabili, quelli personalizzati producono conflitti da risolvere prima delle scritture. Le copie skills devono restare equivalenti: Cursor può leggere anche `.claude/skills/`. La configurazione installata è autonoma; --check usa il pack per confrontare anche le fonti.
+`agent-kit/INSTALLATION.json` records sources, registered names, paths, and hashes. `agent-kit/WORKFLOW.md` documents coordination. Delimited sections in AGENTS.md and CLAUDE.md preserve existing instructions. Unmodified project files can be updated. Customized files produce conflicts that must be resolved before writes. Skill copies must remain equivalent. Cursor can also read `.claude/skills/`. The installed configuration is self-contained. `--check` uses the pack to compare sources as well.
 
-Il coordinatore distingue delega al ruolo registrato, invocazione della skill e lettura di una risorsa. Usa soltanto strumenti realmente disponibili. Se un elemento necessario non compare, controlla nome, formato, percorso, permessi, versione e ricaricamento, poi riprova dopo una correzione. Il lavoro dipendente si ferma; non viene sostituito silenziosamente da un ruolo applicato nella chat. In Claude Code verifica l'accesso a Skill e non precaricare skills manuali. In Codex il ruolo eredita i permessi della sessione: sandbox_mode nel TOML non garantisce una sandbox separata. I modelli sono ereditati dall'ambiente; la preferenza Codex di PromptAgent non è trasferita ad altri provider.
+The coordinator distinguishes delegation to a registered role, skill invocation, and reading a resource. Use only tools actually available. If a required item is missing, check its name, format, path, permissions, version, and reload behavior, then try again after correcting the issue. Dependent work stops. It is not silently replaced by a role applied in the chat. In Claude Code, verify Skill access and do not preload manual skills. In Codex, the role inherits the session's permissions. `sandbox_mode` in the TOML does not guarantee a separate sandbox. Models are inherited from the environment. PromptAgent's Codex preference is not transferred to other providers.
 
-Il risultato distingue **file generati**, **configurazioni controllate**, **elementi riconosciuti** e **chiamate verificate**. --check è statico e gli ambienti non disponibili restano non verificati. In questo laboratorio non si eseguono pipeline reali; la [procedura delle chiamate](Skills/agent-configuration/references/runtime-check.md) va applicata nel progetto di destinazione. Vedi [installazione](Skills/agent-configuration/references/installation.md) e [Starter_pack/README.md](Starter_pack/README.md) per conflitti, più pack, nomi e fasi di Evaluation.
+The result distinguishes **generated files**, **checked configurations**, **recognized items**, and **verified calls**. `--check` is static, and unavailable environments remain unverified. Real pipelines are not run in this laboratory. Apply the [call procedure](Skills/agent-configuration/references/runtime-check.md) in the target project. See [installation](Skills/agent-configuration/references/installation.md) and [Starter_pack/README.md](Starter_pack/README.md) for conflicts, multiple packs, names, and Evaluation phases.
 
-Fonti ufficiali: [Codex agenti](https://developers.openai.com/codex/subagents), [Codex skills](https://developers.openai.com/codex/skills), [Claude Code agenti](https://code.claude.com/docs/en/sub-agents), [Claude Code skills](https://code.claude.com/docs/en/skills), [Cursor agenti](https://cursor.com/docs/subagents), [Cursor skills](https://cursor.com/docs/skills).
+Official sources: [Codex agents](https://developers.openai.com/codex/subagents), [Codex skills](https://developers.openai.com/codex/skills), [Claude Code agents](https://code.claude.com/docs/en/sub-agents), [Claude Code skills](https://code.claude.com/docs/en/skills), [Cursor agents](https://cursor.com/docs/subagents), [Cursor skills](https://cursor.com/docs/skills).
 
-## Usare il grafo Obsidian per migliorare la collaborazione
+## Using the Obsidian graph to improve collaboration
 
-Il grafo dei link tra le note può essere usato come punto di ingresso per analizzare agenti, skills e passaggi di lavoro. AgentOptimizer applica [project-graph-context](Skills/project-graph-context/SKILL.md) e la [procedura Obsidian](Skills/project-graph-context/references/obsidian-workflow.md): ricostruisce i collegamenti pertinenti dai Markdown, legge le condizioni e controlla destinatari, input/output, owner e dipendenze.
+The graph of links between notes can be an entry point for analyzing agents, skills, and work handoffs. AgentOptimizer applies [project-graph-context](Skills/project-graph-context/SKILL.md) and the [Obsidian procedure](Skills/project-graph-context/references/obsidian-workflow.md). It reconstructs relevant links from Markdown, reads the conditions, and checks recipients, inputs/outputs, owners, and dependencies. GraphifyAgent has a distinct purpose. It generates a code graph in `graphify-out/` on request. `project-graph-context` consults existing graphs and does not generate them.
 
-Il riferimento usa gli stessi link interni che alimentano il grafo Obsidian. Non richiede una lettura della finestra né presume un'API del vault. Le impostazioni in .obsidian/graph.json descrivono la vista; le relazioni provengono dai file. Nell'analisi canonica le copie Starter_pack e i report storici non diventano ulteriori agenti.
+The reference uses the same internal links that feed the Obsidian graph. It does not require reading the graphical interface or assume a vault API. Settings in .obsidian/graph.json describe the view. Relationships come from the files. In canonical analysis, Starter_pack copies and historical reports do not count as additional agents.
 
-I nomi collegati nei passaggi degli agenti rendono navigabili collaborazioni già descritte: contratti tra Backend, Frontend e AIEngineer; consegna al Reviewer; AppStarter verso Architect; report e candidata tra Evaluation e AgentOptimizer. Il contesto della frase stabilisce quando si usa la relazione: una freccia non impone una catena completa a ogni richiesta.
+Names linked in agent handoffs make documented collaboration navigable: contracts among Backend, Frontend, and AIEngineer; handoff to Reviewer; AppStarter to Architect; reports and candidate versions between Evaluation and AgentOptimizer. The sentence context establishes when to use a relationship. An arrow does not require the full chain for every request.
 
-Ogni problema deve diventare fonte → relazione/condizione → difetto → modifica mirata → caso da misurare nel report esistente. Evaluation confronta i passaggi realmente eseguiti con quelli documentati e controlla requisiti, contratti ed evidenze nelle tracce. Link e topologia da soli non misurano qualità, costi o prestazioni.
+Turn each issue into source → relationship/condition → defect → targeted change → case to measure in the existing report. Evaluation compares the steps actually performed with those documented and checks requirements, contracts, and evidence in traces. Links and graph topology alone do not measure quality, cost, or performance.
 
-Nel laboratorio di questo repository usa lab_static_evaluator con la skill locale agent-graph-analysis; le modifiche autorizzate spettano a lab_agent_designer. La chat principale salva il report locale. Il workflow esportabile AgentOptimizer resta un prodotto distinto.
+In this repository's laboratory, use lab_static_evaluator with the local agent-graph-analysis skill. Authorized changes belong to lab_agent_designer. The main chat saves the local report. The exportable AgentOptimizer workflow remains a separate product.

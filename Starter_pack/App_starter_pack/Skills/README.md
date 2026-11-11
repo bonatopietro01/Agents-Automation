@@ -92,7 +92,7 @@ Fonti: [mattpocock/skills](https://github.com/mattpocock/skills) e [JuliusBrusse
 
 Le skills operano entro responsabilità e permessi del ruolo configurato. Architect, Reviewer e PromptAgent mantengono i loro limiti di sola lettura. Requisiti, ownership e criteri hanno una sola fonte nel TaskState; le skills aggiuntive applicano il metodo senza creare registri paralleli.
 
-I nove agenti portabili includono una sezione **Skills per il task**; la [mappa nel workflow del pack](../WORKFLOW.md#collaborazione-e-regole-comuni) riepiloga le interconnessioni. I ruoli e le skills usati per mantenere questa raccolta sono separati dai prodotti condivisibili. Per creazione o trasformazione di dati usa i contratti del ruolo e la sezione **Provenienza degli artefatti di dati** di [requirement-traceability](requirement-traceability/SKILL.md): schema, fonte, trasformazione, owner, dati sintetici etichettati ed evidenze. Le procedure importate mantengono il proprio scopo; i richiami vengono adattati al programma senza inventare tool o aggirare policy manuali.
+Gli agenti portabili includono una sezione **Skills per il task**; la [mappa nel workflow del pack](../WORKFLOW.md#collaborazione-e-regole-comuni) riepiloga le interconnessioni. I ruoli e le skills usati per mantenere questa raccolta sono separati dai prodotti condivisibili. Per creazione o trasformazione di dati usa i contratti del ruolo e la sezione **Provenienza degli artefatti di dati** di [requirement-traceability](requirement-traceability/SKILL.md): schema, fonte, trasformazione, owner, dati sintetici etichettati ed evidenze. Le procedure importate mantengono il proprio scopo; i richiami vengono adattati al programma senza inventare tool o aggirare policy manuali.
 
 ## Esportare o usare in chat
 
